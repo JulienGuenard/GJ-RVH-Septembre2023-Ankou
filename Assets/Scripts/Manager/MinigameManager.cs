@@ -54,6 +54,7 @@ public class MinigameManager : MonoBehaviour
 
         miniGame.gameObject.SetActive(true);
         miniGame.StartNegociations(selectedWorkOfArts[i].Item1);
+        MusicManager.instance.MusicNegociation();
     }
 
     public void MinigameEnd(bool success, float cost)
@@ -88,6 +89,7 @@ public class MinigameManager : MonoBehaviour
             miniGame.ShowShame();
 
         ShipManager.Instance.shipCanTravel = true;
+        MusicManager.instance.MusicWorldmap();
     }
 }
 
