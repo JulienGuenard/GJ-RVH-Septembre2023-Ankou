@@ -70,6 +70,10 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# FMOD generated files
+Assets/Fmod_RDV_Histoire/Metadata/
+Assets/Fmod_RDV_Histoire/Plugins/
 fmod_editor.log
 
 # FMOD generated files
