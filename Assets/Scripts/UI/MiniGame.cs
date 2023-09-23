@@ -17,7 +17,7 @@ public class MiniGame : MonoBehaviour
     [SerializeField]
     private WorkOfArt workOfArt;
 
-    public UnityEvent<bool, WorkOfArt, float> OnNegociationEnd;
+    public UnityEvent<bool, float> OnNegociationEnd;
 
     [Header("Data")]
     [SerializeField]
@@ -50,7 +50,7 @@ public class MiniGame : MonoBehaviour
         if(!reglette.UpdateTextAndPosition(cost))
         {
             negoBar.Stop();
-            OnNegociationEnd.Invoke(false, workOfArt, reglette.CurrentValue);
+            OnNegociationEnd.Invoke(false, reglette.CurrentValue);
             playing.SetActive(false);
         }
     }
@@ -58,7 +58,7 @@ public class MiniGame : MonoBehaviour
     public void Validate()
     {
         negoBar.Stop();
-        OnNegociationEnd.Invoke(true, workOfArt, reglette.CurrentValue);
+        OnNegociationEnd.Invoke(true, reglette.CurrentValue);
         playing.SetActive(false);
     }
 
@@ -68,6 +68,12 @@ public class MiniGame : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void ShowShame()
+    {
+        lost.SetActive(true);
+    }
+
+    /*
     [Header("Test")]
     [SerializeField] [Range(0.1f, 0.5f)]
     private float whatIsAGoodPrice;
@@ -113,14 +119,6 @@ public class MiniGame : MonoBehaviour
         Debug.Log("Début Test", this);
         OnNegociationEnd.AddListener(Test);
         StartNegociations(testWOA);
-    }
+    }*/
 }
 
-public enum CoursesItemState
-{
-    NotYetProcessed,
-    Processing,
-    BoughtAtGoodPrice,
-    BoughtAtHighPrice,
-    NegociationFailed
-}

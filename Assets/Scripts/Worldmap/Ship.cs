@@ -20,42 +20,56 @@ public class Ship : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
-    private void Update()
+    public void Travel()
     {
+        agent.SetDestination(GameManager.Instance.portActual.dock.position);
+        StartCoroutine(WaitForTravelEnd());
+    }
+
+    private IEnumerator WaitForTravelEnd()
+    {
+        yield return new WaitWhile(() => agent.pathPending || agent.hasPath || agent.velocity.sqrMagnitude == 0f);
+
         TravelEnd();
     }
 
-    public void Travel()
-    {
-        agent.SetDestination(GameManager.instance.portActual.dock.position);
-    }
+    private GameManager gm;
+    private ShipManager sm;
 
     public void TravelEnd()
     {
-        if (ShipManager.instance.shipCanTravel) return;
-        if (transform.position != GameManager.instance.portActual.dock.position) return;
+        if (!gm)
+            gm = GameManager.Instance;
+        if (!sm)
+            sm = ShipManager.Instance;
 
-        // Check client
-        if (GameManager.instance.portActual.workofartGoalList.Count != 0)
+        Debug.Log("Travel End");
+
+        // (sm.shipCanTravel) return;
+        //if (transform.position != gm.portActual.dock.position) return;
+
+        /*// Check client
+        if (gm.portActual.workofartGoalList.Count != 0)
         {
             ClientManager.instance.ClientGoalAchieved();
             return;
         }
 
         // Check art dispo
-        if (GameManager.instance.portActual.workofartList.Count == 0)
+        if (gm.portActual.workofartList.Count == 0)
         {
-            ShipManager.instance.shipCanTravel = true;
+            sm.shipCanTravel = true;
             return;
-        }
+        }*/
 
         // Check money dispo
-        if (ResourceManager.instance.money <= /**/ 300 /* à remplacer */)
+        if (GameManager.Instance.Money <= /**/ 300 /* à remplacer */)
         {
-            ShipManager.instance.shipCanTravel = true;
+            sm.shipCanTravel = true;
             return;
         }
 
-        MinigameManager.instance.MinigameStart(); 
+        Debug.Log("Starting a mini-game");
+        MinigameManager.Instance.MinigameStart(); 
     }
 }

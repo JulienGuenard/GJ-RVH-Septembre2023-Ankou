@@ -17,19 +17,21 @@ public class ClientManager : MonoBehaviour
 
     public void ClientGoalAchieved()
     {
+        ShipManager sm = ShipManager.Instance;
+
         switch (clientAward)
         {
             case Award.Money:
                 {
-                    ShipManager.instance.playerShip.workofartList.Clear();
-                    ShipManager.instance.shipCanTravel = true;
+                    sm.playerShip.workofartList.Clear();
+                    sm.shipCanTravel = true;
                     ResourceManager.instance.money += clientAwardMoney;
                     break;
                 }
 
             case Award.Victory:
                 {
-                    ShipManager.instance.shipCanTravel = true;
+                    sm.shipCanTravel = true;
                     /* à remplir */
                     break;
                 }
