@@ -59,7 +59,8 @@ public class MiniGame : MonoBehaviour
     {
         negoBar.Stop();
         OnNegociationEnd.Invoke(true, reglette.CurrentValue);
-        playing.SetActive(false);
+    //    playing.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void Leave()
