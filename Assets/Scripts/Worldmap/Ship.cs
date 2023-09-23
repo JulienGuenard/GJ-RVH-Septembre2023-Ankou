@@ -45,23 +45,6 @@ public class Ship : MonoBehaviour
 
         Debug.Log("Travel End");
 
-        // (sm.shipCanTravel) return;
-        //if (transform.position != gm.portActual.dock.position) return;
-
-        /*// Check client
-        if (gm.portActual.workofartGoalList.Count != 0)
-        {
-            ClientManager.instance.ClientGoalAchieved();
-            return;
-        }
-
-        // Check art dispo
-        if (gm.portActual.workofartList.Count == 0)
-        {
-            sm.shipCanTravel = true;
-            return;
-        }*/
-
         // Check money dispo
         if (GameManager.Instance.Money <= /**/ 300 /* à remplacer */)
         {
@@ -70,6 +53,6 @@ public class Ship : MonoBehaviour
         }
 
         Debug.Log("Starting a mini-game");
-        MinigameManager.Instance.MinigameStart(); 
+        MinigameManager.Instance.MinigameStart();
     }
 }
