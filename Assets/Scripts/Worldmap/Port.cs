@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Port : MonoBehaviour
 {
-    [Header("Data")]
-    public City city;
+    [Header("Dock")]
+    public Transform dock;
 
     [Header("Oeuvre d'art disponibles")]
     public List<WorkOfArt> workofartList; // oeuvre d'art disponible à acheter
