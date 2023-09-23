@@ -8,10 +8,14 @@ public class ShipManager : MonoBehaviour
     public Ship playerShip;
     public bool shipCanTravel = true;
 
-    public static ShipManager instance;
+    private static ShipManager instance;
+    public static ShipManager Instance => instance;
 
     void Awake()
     {
-        if (instance == null) instance = this;
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(this);
     }
 }
