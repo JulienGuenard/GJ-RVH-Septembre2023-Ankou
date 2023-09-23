@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Ship : MonoBehaviour
 {
@@ -11,32 +12,29 @@ public class Ship : MonoBehaviour
     public List<WorkOfArt> workofartList;
 
     Animator animator;
+    NavMeshAgent agent;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
-        animator.speed = 1000f;
-        StartCoroutine(StartDelayed());
+        agent = GetComponent<NavMeshAgent>();
     }
 
-    IEnumerator StartDelayed()
+    private void Update()
     {
-        yield return new WaitForSeconds(0.1f);
-        animator.speed = speed;
+        TravelEnd();
     }
 
-    public void TravelTo(City destination)
+    public void Travel()
     {
-        switch (destination)
-        {
-            case City.Rome:     animator.SetTrigger("Rome");    break;
-            case City.Athenes:  animator.SetTrigger("Athenes"); break;
-            case City.Lucet:    animator.SetTrigger("Lucet");   break;
-        }
+        agent.SetDestination(GameManager.instance.portActual.dock.position);
     }
 
     public void TravelEnd()
     {
+        if (ShipManager.instance.shipCanTravel) return;
+        if (transform.position != GameManager.instance.portActual.dock.position) return;
+
         // Check client
         if (GameManager.instance.portActual.workofartGoalList.Count != 0)
         {

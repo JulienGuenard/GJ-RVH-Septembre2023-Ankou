@@ -13,11 +13,10 @@ public class PortTrigger : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GameManager.instance.cityActual == port.city)   return;
-        if (!ShipManager.instance.shipCanTravel)            return;
+        if (GameManager.instance.portActual == port)    return;
+        if (!ShipManager.instance.shipCanTravel)        return;
 
-        GameManager.instance.cityActual = port.city;
-        ShipManager.instance.playerShip.TravelTo(port.city);
-        ShipManager.instance.shipCanTravel = false;
+        GameManager.instance.portActual = port;
+        ShipManager.instance.playerShip.Travel();
     }
 }

@@ -6,7 +6,7 @@ public class ShipManager : MonoBehaviour
 {
     [Header("References")]
     public Ship playerShip;
-    [HideInInspector] public bool shipCanTravel = true;
+    public bool shipCanTravel = true;
 
     public static ShipManager instance;
 
