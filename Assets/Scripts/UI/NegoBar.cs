@@ -266,7 +266,18 @@ public class NegoBar : MonoBehaviour
         else
             val = 15f;
 
+        DrawNewBar();
         return true;
+    }
+
+    private void DrawNewBar()
+    {
+        float _lowPercentage = UnityEngine.Random.Range(1f, 95f);
+        float _middlePercentage = UnityEngine.Random.Range(1f, _lowPercentage - 5f);
+        float _highPercentage = 100f - _middlePercentage;
+
+        UpdatePercentages(_lowPercentage, _middlePercentage, _highPercentage);
+        CheckPositions(UnityEngine.Random.Range(-50f,50f), UnityEngine.Random.Range(-50f, 50f), UnityEngine.Random.Range(-50f, 50f));
     }
 
     public void Stop()
