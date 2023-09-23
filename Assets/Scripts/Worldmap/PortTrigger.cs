@@ -18,5 +18,12 @@ public class PortTrigger : MonoBehaviour
 
         GameManager.instance.portActual = port;
         ShipManager.instance.playerShip.Travel();
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI_Clic");
+    }
+
+    private void OnMouseEnter()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI_Hovering");
     }
 }

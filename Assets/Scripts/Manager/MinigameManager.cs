@@ -18,12 +18,14 @@ public class MinigameManager : MonoBehaviour
 
     public void MinigameStart()
     {
-        foreach(GameObject obj in minigameGMBList) obj.SetActive(true);
+        MusicManager.instance.MusicNegociation();
+        foreach (GameObject obj in minigameGMBList) obj.SetActive(true);
         minigame.StartNegociations(testWOA);
     }
 
     public void MinigameEnd()
     {
+        MusicManager.instance.MusicWorldmap();
         foreach (GameObject obj in minigameGMBList) obj.SetActive(false);
         ShipManager.instance.shipCanTravel = true;
     }

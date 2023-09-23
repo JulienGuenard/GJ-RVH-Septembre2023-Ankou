@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,8 +15,13 @@ public class GameManager : MonoBehaviour
         if (instance == null) instance = this;
     }
 
-    public void Victory()
+    private void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            MusicManager.instance.MusicClear();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        
     }
 }
