@@ -76,7 +76,4 @@ Assets/Fmod_RDV_Histoire/Metadata/
 Assets/Fmod_RDV_Histoire/Plugins/
 fmod_editor.log
 
-# FMOD generated files
-Assets/Fmod_RDV_Histoire/Metadata/
-Assets/Fmod_RDV_Histoire/Plugins/
-fmod_editor.log
+/Assets/Art/temp/
