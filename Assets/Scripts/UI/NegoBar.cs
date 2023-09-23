@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class NegoBar : MonoBehaviour
 {
-    private float totalSize;
 
     [Header("Refs")]
     [SerializeField]
@@ -15,6 +14,8 @@ public class NegoBar : MonoBehaviour
     private GameObject middleBar;
     [SerializeField]
     private GameObject topBar;
+    [SerializeField]
+    private GameObject cursor;
 
     [Header("Bar Colors")]
     [SerializeField]
@@ -25,6 +26,8 @@ public class NegoBar : MonoBehaviour
     private Color highColor;
 
     [Header("Parameters")]
+    [SerializeField]
+    private float totalSize;
     [SerializeField]
     private GameObject lowGO;
     [SerializeField] [Range(1f, 99f)]
@@ -46,10 +49,21 @@ public class NegoBar : MonoBehaviour
     [SerializeField] [Range(-50f, 50f)]
     private float highPosition;
 
-    private void Start()
-    {
-        totalSize = ((RectTransform)transform).rect.width;
-    }
+    [Header("In Play")]
+    [SerializeField]
+    private float cursorMinTime;
+    [SerializeField]
+    private float cursorMaxTime;
+    [SerializeField]
+    private AnimationCurve timeToCursorPosCurve;
+    [SerializeField]
+    private float currentTime;
+    [SerializeField]
+    private float pauseTime;
+    [SerializeField]
+    private bool isPaused;
+    [SerializeField]
+    private bool isPlaying;
 
     public void UpdatePercentages(float _lowPercentage, float _middlePercentage, float _highPercentage)
     {
@@ -66,7 +80,12 @@ public class NegoBar : MonoBehaviour
             _highPercentage = _highPercentage / total * 100f;
         }
 
+        lowPercentage = _lowPercentage;
+        middlePercentage = _middlePercentage;
+        highPercentage = _highPercentage;
+
         CheckLayers(ref _lowPercentage, ref _middlePercentage, ref _highPercentage);
+        Debug.Log($"{_lowPercentage}, {_middlePercentage}, {_highPercentage}");
 
         float trueLowSize = lowGO == backgroundBar ? totalSize : _lowPercentage * totalSize / 100f;
         Debug.Log($"low size : {trueLowSize}");
@@ -74,12 +93,12 @@ public class NegoBar : MonoBehaviour
         lowGO.GetComponent<Image>().color = lowColor;
 
         float trueMiddleSize = middleGO == backgroundBar ? totalSize : _middlePercentage * totalSize / 100f;
-        Debug.Log($"low size : {trueMiddleSize}");
+        Debug.Log($"middle size : {trueMiddleSize}");
         ((RectTransform)middleGO.transform).SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, trueMiddleSize);
         middleGO.GetComponent<Image>().color = middleColor;
 
         float trueHighSize = highGO == backgroundBar ? totalSize : _highPercentage * totalSize / 100f;
-        Debug.Log($"low size : {trueHighSize}");
+        Debug.Log($"high size : {trueHighSize}");
         ((RectTransform)highGO.transform).SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, trueHighSize);
         highGO.GetComponent<Image>().color = highColor;
     }
@@ -93,11 +112,20 @@ public class NegoBar : MonoBehaviour
         float max = Mathf.Max(_lowPercentage, _middlePercentage, _highPercentage);
 
         if (max == _lowPercentage)
+        {
             lowGO = backgroundBar;
+            _lowPercentage = 100f;
+        }
         else if (max == _middlePercentage)
+        {
             middleGO = backgroundBar;
+            _middlePercentage = 100f;
+        }
         else
+        {
             highGO = backgroundBar;
+            _highPercentage = 100f;
+        }
 
         float min = Mathf.Min(_lowPercentage, _middlePercentage, _highPercentage);
 
@@ -107,8 +135,6 @@ public class NegoBar : MonoBehaviour
             middleGO = topBar;
         else if (highGO != backgroundBar)
             highGO = topBar;
-
-        (lowPercentage, middlePercentage, highPercentage) = (_lowPercentage, _middlePercentage, _highPercentage);
 
         if (!lowGO)
         { 
@@ -173,7 +199,139 @@ public class NegoBar : MonoBehaviour
         thirdBar.transform.localPosition = newPos;
     }
 
-    [Header("Test")]
+    public void UpdateCurrentTimer(float progression)
+    {
+        currentTime = Mathf.Lerp(cursorMinTime, cursorMaxTime, progression);
+    }
+
+    public void StartPlaying()
+    {
+        StartCoroutine(Loop());
+    }
+
+    public bool PickUpValue(out float val)
+    {
+        if (isPaused)
+        {
+            val = 0f;
+            return false;
+        }
+
+        isPaused = true;
+
+        float truePos = cursor.transform.localPosition.x;
+
+        Debug.Log($"truePos = {truePos}");
+
+        GameObject bar;
+
+        RectTransform middleTransform = (RectTransform)middleBar.transform;
+        float middleLocalPosX = middleTransform.localPosition.x;
+        float minX = middleLocalPosX - middleTransform.rect.size.x / 2f;
+        float maxX = middleLocalPosX + middleTransform.rect.size.x / 2f;
+
+        Debug.Log($"min Middle = {minX}, max Middle = {maxX}");
+
+        if (truePos >= minX && truePos <= maxX) // isInMiddleBar
+        {
+            Debug.Log("Is in Middle");
+            RectTransform topTransform = (RectTransform)topBar.transform;
+            float topLocalPosX = middleTransform.localPosition.x;
+            minX = middleLocalPosX + topLocalPosX - topTransform.rect.size.x / 2f;
+            maxX = middleLocalPosX + topLocalPosX + topTransform.rect.size.x / 2f;
+
+            Debug.Log($"min Top = {minX}, max Top = {maxX}");
+
+            if (truePos >= minX && truePos <= maxX) // isTopBar
+            {
+                bar = topBar;
+                Debug.Log("Is Top");
+            }
+            else
+            {
+                bar = middleBar;
+                Debug.Log("Is Middle");
+            }
+        }
+        else
+        {
+            bar = backgroundBar;
+            Debug.Log("Is Background");
+        }
+
+        if (bar == lowGO)
+            val = 5f;
+        else if (bar == middleGO)
+            val = 10f;
+        else
+            val = 15f;
+
+        DrawNewBar();
+        return true;
+    }
+
+    private void DrawNewBar()
+    {
+        float _lowPercentage = UnityEngine.Random.Range(1f, 95f);
+        float _middlePercentage = UnityEngine.Random.Range(1f, _lowPercentage - 5f);
+        float _highPercentage = 100f - _middlePercentage;
+
+        UpdatePercentages(_lowPercentage, _middlePercentage, _highPercentage);
+        CheckPositions(UnityEngine.Random.Range(-50f,50f), UnityEngine.Random.Range(-50f, 50f), UnityEngine.Random.Range(-50f, 50f));
+    }
+
+    public void Stop()
+    {
+        isPlaying = false;
+    }
+
+    private IEnumerator Loop(
+        float _lowPercentage = 50f, float _middlePercentage = 30f,
+        float _highPercentage = 20f, float _lowPosition = 0f,
+        float _middlePosition = 0f, float _highPosition = 0f
+    )
+    {
+        UpdatePercentages(_lowPercentage, _middlePercentage, _highPercentage);
+        CheckPositions(_lowPosition, _middlePosition, _highPosition);
+
+        isPlaying = true;
+        float playTimer = 0f, pauseTimer = 0f;
+        bool isOneWay = true;
+
+        UpdateCurrentTimer(playTimer);
+
+        while(isPlaying)
+        {
+            if(isPaused)
+            {
+                pauseTimer += Time.deltaTime;
+
+                if(pauseTimer >= pauseTime)
+                {
+                    pauseTimer = 0f;
+                    isPaused = false;
+                }
+            }
+            else
+            {
+                playTimer += Time.deltaTime;
+
+                if (playTimer >= currentTime)
+                {
+                    playTimer = 0f;
+                    isOneWay = !isOneWay;
+                }
+
+                Vector3 cursorPos = cursor.transform.localPosition;
+                cursorPos.x = (isOneWay ? 1 : -1) * (-totalSize/2 + totalSize * Mathf.Lerp(0f, currentTime, playTimer));
+                cursor.transform.localPosition = cursorPos;
+            }
+
+            yield return null;
+        }
+    }
+
+    /*[Header("Test")]
     public float testLowPercentage;
     public float testMiddlePercentage;
     public float testHighPercentage;
@@ -192,5 +350,5 @@ public class NegoBar : MonoBehaviour
             UpdatePercentages(testLowPercentage, testMiddlePercentage, testHighPercentage);
             CheckPositions(testLowPosition, testMiddlePosition, testHighPosition);
         }
-    }
+    }*/
 }

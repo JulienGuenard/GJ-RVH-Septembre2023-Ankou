@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b531a52ba941e048a7712c8bc0a1150, type: 3}
   m_Name: 1stTest
   m_EditorClassIdentifier: 
-  WorkName: 
-  MinPrize: 0
-  MaxPrize: 0
-  Description: 
+  MinPrize: 5
+  MaxPrize: 50
+  Description: dfgxdf
   Sprite: {fileID: 0}
