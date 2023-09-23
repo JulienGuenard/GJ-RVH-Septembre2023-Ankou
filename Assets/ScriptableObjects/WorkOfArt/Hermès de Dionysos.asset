@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b531a52ba941e048a7712c8bc0a1150, type: 3}
+  m_Name: "Herm\xE8s de Dionysos"
+  m_EditorClassIdentifier: 
+  MinPrize: 5
+  MaxPrize: 50
+  Description: "Provenance : \xE9pave de Mahdia (Tunisie) (dat\xE9e entre la fin
+    du IIe et le d\xE9but du Ier si\xE8cle avant notre \xE8re)\r\nTaille : 1,03 m\r\nMat\xE9riau
+    : bronze\r\nLe type de sculpture s'appelle un \"herm\xE8s\", il s'agit \xE0 l'origine
+    d'un buste au sommet d'un pilier plac\xE9 aux abords des carrefours dans la Gr\xE8ce
+    antique. Les Romains r\xE9utilis\xE8rent ces herm\xE8s pour orner leurs jardins.
+    Celui-ci repr\xE9sente Dionysos, le dieu du vin, il est dat\xE9 du d\xE9but du
+    Ier s. av. n. \xE8. et a \xE9t\xE9 sign\xE9 par le sculpteur Boethos de Chalc\xE9doine."
+  Sprite: {fileID: 2800000, guid: 04b1f03247252b442a1ab07dc33445ff, type: 3}
+  Picture: {fileID: 21300000, guid: 071f2f16b950e8d46be6c85a90666aea, type: 3}
+  lien: https://journals.openedition.org/techne/1220?lang=fr
