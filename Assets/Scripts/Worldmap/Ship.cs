@@ -20,11 +20,6 @@ public class Ship : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
-    private void Update()
-    {
-        TravelEnd();
-    }
-
     public void Travel()
     {
         agent.SetDestination(GameManager.instance.portActual.dock.position);
@@ -32,30 +27,17 @@ public class Ship : MonoBehaviour
 
     public void TravelEnd()
     {
-        if (ShipManager.instance.shipCanTravel) return;
-        if (transform.position != GameManager.instance.portActual.dock.position) return;
+        MinigameManager.instance.MinigameStart();
+        ShipManager.instance.shipCanTravel = false;
+    }
 
-        // Check client
-        if (GameManager.instance.portActual.workofartGoalList.Count != 0)
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.tag == "Dock")
         {
-            ClientManager.instance.ClientGoalAchieved();
-            return;
-        }
+            if (!collision.gameObject == GameManager.instance.portActual.dock) return;
 
-        // Check art dispo
-        if (GameManager.instance.portActual.workofartList.Count == 0)
-        {
-            ShipManager.instance.shipCanTravel = true;
-            return;
+            TravelEnd();
         }
-
-        // Check money dispo
-        if (ResourceManager.instance.money <= /**/ 300 /* à remplacer */)
-        {
-            ShipManager.instance.shipCanTravel = true;
-            return;
-        }
-
-        MinigameManager.instance.MinigameStart(); 
     }
 }
