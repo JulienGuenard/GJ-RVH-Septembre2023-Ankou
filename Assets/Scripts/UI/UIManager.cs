@@ -11,6 +11,14 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject listeDeCourses;
 
+    [SerializeField]
+    private GameObject EndPanel;
+
+    [SerializeField]
+    private Glossaire glossaire;
+
+    private bool glossaireOpen = false;
+
     private void Start()
     {
         UpdateMoney(GameManager.Instance.Money);
@@ -38,5 +46,24 @@ public class UIManager : MonoBehaviour
     public void UpdateMoney(float money)
     {
         moneyText.text = $" {money}";
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            if (!glossaireOpen)
+            {
+                EndPanel.SetActive(true);
+                glossaire.Open();
+                glossaireOpen = true;
+            }
+            else
+            {
+                glossaire.Close();
+                EndPanel.SetActive(false);
+                glossaireOpen = false;
+            }
+        }
     }
 }
