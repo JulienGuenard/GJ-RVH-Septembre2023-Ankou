@@ -23,7 +23,8 @@ public class PageGlossaire : MonoBehaviour
             t.GetChild(1).GetComponent<Image>().sprite = pic;
             t.GetChild(1).GetComponent<Button>().onClick.AddListener(() => changeSize.Invoke(pic));
             t.GetChild(2).GetComponent<TextMeshProUGUI>().text = list[i].Description;
-            t.GetChild(3).GetComponent<Button>().onClick.AddListener(() => Application.OpenURL(list[i].Lien));
+            string link = list[i].Lien;
+            t.GetChild(3).GetComponent<Button>().onClick.AddListener(() => Application.OpenURL(link));
         }
 
         if(elements.Count>list.Count)
