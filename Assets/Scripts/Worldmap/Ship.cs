@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Ship : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class Ship : MonoBehaviour
 
     [Header("Cargaison")]
     public List<WorkOfArt> workofartList;
+    public List<GameObject> itemGMBList;
 
     Animator animator;
     NavMeshAgent agent;
@@ -18,6 +21,11 @@ public class Ship : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+
+        foreach(GameObject obj in itemGMBList)
+        {
+            obj.SetActive(false);
+        }
     }
 
     public void Travel()
@@ -57,6 +65,10 @@ public class Ship : MonoBehaviour
 
         Debug.Log("Travel End");
 
+        MusicManager.instance.SFXTravelStop();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Boat_Arrived");
+        StopAllCoroutines();
+
         // Check money dispo
         if (GameManager.Instance.Money <= /**/ 300 /* à remplacer */)
         {
@@ -67,8 +79,16 @@ public class Ship : MonoBehaviour
         Debug.Log("Starting a mini-game");
         MinigameManager.Instance.MinigameStart();
 
-        MusicManager.instance.SFXTravelStop();
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Boat_Arrived");
-        StopCoroutine(TravelParticleUpdate());
+        ShipManager.Instance.shipCanTravel = false;
+    }
+
+    public void AddToCargaison(WorkOfArt art)
+    {
+        if (workofartList.Count == 3) return;
+
+        workofartList.Add(art);
+        itemGMBList[workofartList.Count - 1].SetActive(true);
+        itemGMBList[workofartList.Count - 1].GetComponentInChildren<TextMeshProUGUI>().text = art.name;
+        itemGMBList[workofartList.Count - 1].GetComponentInChildren<Image>().sprite = art.Illustration;
     }
 }
