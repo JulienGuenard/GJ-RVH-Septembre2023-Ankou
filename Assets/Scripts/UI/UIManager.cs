@@ -103,6 +103,8 @@ public class UIManager : MonoBehaviour
 
     public void LaunchScore(int v)
     {
+        EndPanel.SetActive(true);
+
         text75.gameObject.SetActive(false);
         text50.gameObject.SetActive(false);
         text25.gameObject.SetActive(false);

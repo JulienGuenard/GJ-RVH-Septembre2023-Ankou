@@ -46,7 +46,9 @@ public class Ship : MonoBehaviour
 
     IEnumerator TravelParticleUpdate()
     {
-        GameObject obj = Instantiate(trailParticle, transform.position, transform.rotation);
+        if(trailParticle)
+            Instantiate(trailParticle, transform.position, transform.rotation);
+        
         yield return new WaitForSeconds(0.07f);
         StartCoroutine(TravelParticleUpdate());
     }
@@ -63,6 +65,7 @@ public class Ship : MonoBehaviour
 
     public void TravelEnd()
     {
+
         if (!gm)
             gm = GameManager.Instance;
         if (!sm)
@@ -70,8 +73,7 @@ public class Ship : MonoBehaviour
 
         Debug.Log("Travel End");
 
-        MusicManager.instance.SFXTravelStop();
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Boat_Arrived");
+        OnStartTravel.Invoke();
         StopAllCoroutines();
 
         // Check money dispo
@@ -83,8 +85,12 @@ public class Ship : MonoBehaviour
 
         if(gm.portActual.isLastPort)
         {
-            if(gm.ReadyToEndGame)
+            Debug.Log("bonjour");
+            if (gm.ReadyToEndGame)
+            {
                 GameManager.Instance.LaunchScore();
+                Debug.Log("au revoir");
+            }
             else
                 sm.shipCanTravel = true;
 
@@ -101,11 +107,11 @@ public class Ship : MonoBehaviour
 
     public void AddToCargaison(WorkOfArt art)
     {
-        if (workofartList.Count == 3) return;
+        /*if (workofartList.Count == 3) return;
 
         workofartList.Add(art);
         itemGMBList[workofartList.Count - 1].SetActive(true);
         itemGMBList[workofartList.Count - 1].GetComponentInChildren<TextMeshProUGUI>().text = art.name;
-        itemGMBList[workofartList.Count - 1].GetComponentInChildren<Image>().sprite = art.Illustration;
+        itemGMBList[workofartList.Count - 1].GetComponentInChildren<Image>().sprite = art.Illustration;*/
     }
 }

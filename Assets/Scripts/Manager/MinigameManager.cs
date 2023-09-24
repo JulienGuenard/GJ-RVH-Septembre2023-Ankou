@@ -110,6 +110,13 @@ public class MinigameManager : MonoBehaviour
         gm.portActual.AlreadyVisited = true;
     }
 
+    public void DeadEnd()
+    {
+        for (int i = 0; i < selectedWorkOfArts.Count; i++)
+            if (selectedWorkOfArts[i].Item2 == CoursesItemState.NotYetProcessed || selectedWorkOfArts[i].Item2 == CoursesItemState.Processing)
+                selectedWorkOfArts[i] = (selectedWorkOfArts[i].Item1, CoursesItemState.NegociationFailed);
+    }
+
     public int ComputeScore()
     {
         int score = 0;
