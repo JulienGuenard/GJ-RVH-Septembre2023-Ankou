@@ -409,6 +409,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 775146339261529808, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 775146339261529808, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4a5968984dc92b442b490cda302539c4, type: 3}
+    - target: {fileID: 775146339261529808, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101950864328838277, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      propertyPath: m_text
+      value: Liste
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101950864328838277, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101950864328838277, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101950864328838277, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101950864328838277, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     - target: {fileID: 4956605348245255612, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
       propertyPath: m_Pivot.x
       value: 0
