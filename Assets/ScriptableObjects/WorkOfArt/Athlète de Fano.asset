@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b531a52ba941e048a7712c8bc0a1150, type: 3}
   m_Name: "Athl\xE8te de Fano"
   m_EditorClassIdentifier: 
-  MinPrize: 5
-  MaxPrize: 50
+  MinPrize: 5500
+  MaxPrize: 8500
   Description: "Provenance : au large de Fano (Italie)\r\nTaille : 1,51 m\r\nMat\xE9riau
     : bronze\r\nLa statue, dat\xE9e entre le d\xE9but du IIIe et la fin du IIe s.
     av. n. \xE8., repr\xE9sente un jeune athl\xE8te portant la couronne d'olivier,

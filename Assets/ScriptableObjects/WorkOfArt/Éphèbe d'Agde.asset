@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b531a52ba941e048a7712c8bc0a1150, type: 3}
   m_Name: "\xC9ph\xE8be d'Agde"
   m_EditorClassIdentifier: 
-  MinPrize: 5
-  MaxPrize: 50
+  MinPrize: 4000
+  MaxPrize: 7000
   Description: "Provenance : fleuve H\xE9rault (France)\r\nTaille : 1,33 m\r\nMat\xE9riau
     : bronze\r\nLa statue, dat\xE9e entre le d\xE9but du IIe et la fin du Ier s.
     av. n. \xE8., repr\xE9sente Alexandre le Grand. Elle pourrait provenir de Gr\xE8ce

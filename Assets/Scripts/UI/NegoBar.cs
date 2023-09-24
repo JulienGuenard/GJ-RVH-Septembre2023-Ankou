@@ -260,11 +260,11 @@ public class NegoBar : MonoBehaviour
         }
 
         if (bar == lowGO)
-            val = 5f;
+            val = 100f;
         else if (bar == middleGO)
-            val = 10f;
+            val = 500f;
         else
-            val = 15f;
+            val = 1000f;
 
         DrawNewBar();
         return true;
