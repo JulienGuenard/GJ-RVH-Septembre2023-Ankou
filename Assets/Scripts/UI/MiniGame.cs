@@ -38,6 +38,7 @@ public class MiniGame : MonoBehaviour
 
         reglette.SetUp(workOfArt.MinPrize, workOfArt.MaxPrize);
         negoBar.StartPlaying();
+        playing.SetActive(true);
     }
 
     public void Negociate()
@@ -59,7 +60,7 @@ public class MiniGame : MonoBehaviour
     {
         negoBar.Stop();
         OnNegociationEnd.Invoke(true, reglette.CurrentValue);
-        playing.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void Leave()

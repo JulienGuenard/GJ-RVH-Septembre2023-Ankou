@@ -26,6 +26,7 @@ public class MinigameManager : MonoBehaviour
     [SerializeField]
     private List<WorkOfArt> availableWorkOfArts;
     private List<(WorkOfArt, CoursesItemState)> selectedWorkOfArts;
+    public List<(WorkOfArt, CoursesItemState)> Selection => selectedWorkOfArts;
 
     [Header("Data")]
     [SerializeField] [Range(0.1f, 0.5f)]
@@ -35,8 +36,12 @@ public class MinigameManager : MonoBehaviour
     {
         selectedWorkOfArts = new List<(WorkOfArt, CoursesItemState)>();
 
-        for (int i=0; i < 4; i++)
-            selectedWorkOfArts.Add((availableWorkOfArts[Random.Range(0,availableWorkOfArts.Count)], CoursesItemState.NotYetProcessed));
+        for (int i = 0; i < 4; i++)
+        {
+            int j = Random.Range(0, availableWorkOfArts.Count);
+            selectedWorkOfArts.Add((availableWorkOfArts[j], CoursesItemState.NotYetProcessed));
+            availableWorkOfArts.RemoveAt(j);
+        }
 
         miniGame.OnNegociationEnd.AddListener(MinigameEnd);
     }
