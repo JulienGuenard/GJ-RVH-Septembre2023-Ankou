@@ -36,7 +36,7 @@ public class Glossaire : MonoBehaviour
     private RectTransform lastRectTransform;
     private int index = 0;
 
-    private void Start()
+    private void OnEnable()
     {
         for(int i=0; i<(workOfArts.Count/4+(workOfArts.Count % 4 > 0 ? 1 : 0)); i++)
         {
@@ -94,12 +94,5 @@ public class Glossaire : MonoBehaviour
     {
         pages[0].gameObject.SetActive(false);
         util.SetActive(false);
-    }
-
-    //Test
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-            Open();
     }
 }
