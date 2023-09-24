@@ -1681,7 +1681,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 57.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2005,6 +2005,7 @@ GameObject:
   - component: {fileID: 7526830301586535094}
   - component: {fileID: 5143746141064856965}
   - component: {fileID: 7051522328599874726}
+  - component: {fileID: 8185903740689568529}
   m_Layer: 5
   m_Name: Btn - Validate
   m_TagString: Untagged
@@ -2127,6 +2128,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8185903740689568529}
+        m_TargetAssemblyTypeName: UIPlayerOneShot, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8185903740689568529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3674132514589135393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d5e7e7424322a42b9652faadafed25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvent:
+    Guid:
+      Data1: 683232943
+      Data2: 1122045008
+      Data3: -1575015546
+      Data4: -31239770
+    Path: event:/UI_Clic_Buy
 --- !u!1 &3807763219336381158
 GameObject:
   m_ObjectHideFlags: 0
@@ -2446,6 +2478,7 @@ GameObject:
   - component: {fileID: 5855707297368594000}
   - component: {fileID: 7154976712641858912}
   - component: {fileID: 1687376303780255792}
+  - component: {fileID: 836969468441312926}
   m_Layer: 5
   m_Name: Btn - Hide Liste de Courses
   m_TagString: Untagged
@@ -2579,6 +2612,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 836969468441312926}
+        m_TargetAssemblyTypeName: UIPlayerOneShot, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &836969468441312926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4365014009205573555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d5e7e7424322a42b9652faadafed25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvent:
+    Guid:
+      Data1: 62271411
+      Data2: 1334596040
+      Data3: 1819376283
+      Data4: -544055211
+    Path: event:/UI_Back
 --- !u!1 &4426880794848767219
 GameObject:
   m_ObjectHideFlags: 0
@@ -2930,6 +2994,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyText: {fileID: 5902712961900125750}
   listeDeCourses: {fileID: 5803739256298493908}
+  EndPanel: {fileID: 0}
+  glossaire: {fileID: 0}
 --- !u!1 &5545604917656182050
 GameObject:
   m_ObjectHideFlags: 0
@@ -4129,6 +4195,7 @@ GameObject:
   - component: {fileID: 7110149067771418785}
   - component: {fileID: 7710828505154705209}
   - component: {fileID: 7379541227326325406}
+  - component: {fileID: 8971375400095303043}
   m_Layer: 5
   m_Name: Btn - Negociate
   m_TagString: Untagged
@@ -4251,6 +4318,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8971375400095303043}
+        m_TargetAssemblyTypeName: UIPlayerOneShot, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8971375400095303043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7477379257553506010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d5e7e7424322a42b9652faadafed25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvent:
+    Guid:
+      Data1: 85591663
+      Data2: 1214901982
+      Data3: -524869470
+      Data4: -1454160772
+    Path: event:/UI_Clic
 --- !u!1 &7851410122862343092
 GameObject:
   m_ObjectHideFlags: 0
@@ -4803,6 +4901,7 @@ GameObject:
   - component: {fileID: 6806487234316379258}
   - component: {fileID: 8095535602471266575}
   - component: {fileID: 6399265625319935923}
+  - component: {fileID: 8258608712495332334}
   m_Layer: 5
   m_Name: Btn - Leave
   m_TagString: Untagged
@@ -4925,6 +5024,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8258608712495332334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414617672256357904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d5e7e7424322a42b9652faadafed25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvent:
+    Guid:
+      Data1: 62271411
+      Data2: 1334596040
+      Data3: 1819376283
+      Data4: -544055211
+    Path: event:/UI_Back
 --- !u!1 &8536321372699957205
 GameObject:
   m_ObjectHideFlags: 0
@@ -4937,6 +5055,7 @@ GameObject:
   - component: {fileID: 3566431821014823339}
   - component: {fileID: 775146339261529808}
   - component: {fileID: 4627771711596296829}
+  - component: {fileID: 6906023262652311464}
   m_Layer: 5
   m_Name: Btn - Show Liste de Courses
   m_TagString: Untagged
@@ -5083,6 +5202,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6906023262652311464}
+        m_TargetAssemblyTypeName: UIPlayerOneShot, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6906023262652311464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8536321372699957205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d5e7e7424322a42b9652faadafed25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvent:
+    Guid:
+      Data1: 85591663
+      Data2: 1214901982
+      Data3: -524869470
+      Data4: -1454160772
+    Path: event:/UI_Clic
 --- !u!1 &8803850061012808987
 GameObject:
   m_ObjectHideFlags: 0
