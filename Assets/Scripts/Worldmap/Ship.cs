@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Ship : MonoBehaviour
@@ -13,6 +14,10 @@ public class Ship : MonoBehaviour
     [Header("Cargaison")]
     public List<WorkOfArt> workofartList;
     public List<GameObject> itemGMBList;
+
+    [Header("Events")]
+    public UnityEvent OnStartTravel;
+    public UnityEvent OnEndTravel;
 
     Animator animator;
     NavMeshAgent agent;
@@ -30,7 +35,7 @@ public class Ship : MonoBehaviour
 
     public void Travel()
     {
-        MusicManager.instance.SFXTravelStart();
+        OnStartTravel.Invoke();
         agent.SetDestination(GameManager.Instance.portActual.dock.position);
         StopCoroutine(TravelParticleUpdate());
         StartCoroutine(TravelParticleUpdate());
@@ -41,7 +46,9 @@ public class Ship : MonoBehaviour
 
     IEnumerator TravelParticleUpdate()
     {
-        GameObject obj = Instantiate(trailParticle, transform.position, transform.rotation);
+        if(trailParticle)
+            Instantiate(trailParticle, transform.position, transform.rotation);
+        
         yield return new WaitForSeconds(0.07f);
         StartCoroutine(TravelParticleUpdate());
     }
@@ -58,6 +65,7 @@ public class Ship : MonoBehaviour
 
     public void TravelEnd()
     {
+
         if (!gm)
             gm = GameManager.Instance;
         if (!sm)
@@ -65,30 +73,45 @@ public class Ship : MonoBehaviour
 
         Debug.Log("Travel End");
 
-        MusicManager.instance.SFXTravelStop();
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Boat_Arrived");
+        OnStartTravel.Invoke();
         StopAllCoroutines();
 
         // Check money dispo
-        if (GameManager.Instance.Money <= /**/ 300 /* à remplacer */)
+        if (gm.portActual.AlreadyVisited && gm.CanStartNegociation)
         {
             sm.shipCanTravel = true;
+            return;
+        }
+
+        if(gm.portActual.isLastPort)
+        {
+            Debug.Log("bonjour");
+            if (gm.ReadyToEndGame)
+            {
+                GameManager.Instance.LaunchScore();
+                Debug.Log("au revoir");
+            }
+            else
+                sm.shipCanTravel = true;
+
             return;
         }
 
         Debug.Log("Starting a mini-game");
         MinigameManager.Instance.MinigameStart();
 
+        OnEndTravel.Invoke();
+        StopCoroutine(TravelParticleUpdate());
         ShipManager.Instance.shipCanTravel = false;
     }
 
     public void AddToCargaison(WorkOfArt art)
     {
-        if (workofartList.Count == 3) return;
+        /*if (workofartList.Count == 3) return;
 
         workofartList.Add(art);
         itemGMBList[workofartList.Count - 1].SetActive(true);
         itemGMBList[workofartList.Count - 1].GetComponentInChildren<TextMeshProUGUI>().text = art.name;
-        itemGMBList[workofartList.Count - 1].GetComponentInChildren<Image>().sprite = art.Illustration;
+        itemGMBList[workofartList.Count - 1].GetComponentInChildren<Image>().sprite = art.Illustration;*/
     }
 }

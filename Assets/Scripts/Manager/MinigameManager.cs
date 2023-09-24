@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MinigameManager : MonoBehaviour
 {
@@ -25,16 +26,27 @@ public class MinigameManager : MonoBehaviour
     private MiniGame miniGame;
     [SerializeField]
     private List<WorkOfArt> availableWorkOfArts;
-    private List<(WorkOfArt, CoursesItemState)> selectedWorkOfArts;
+    private List<(WorkOfArt, CoursesItemState)> selectedWorkOfArts = new List<(WorkOfArt, CoursesItemState)>();
     public List<(WorkOfArt, CoursesItemState)> Selection => selectedWorkOfArts;
 
     [Header("Data")]
     [SerializeField] [Range(0.1f, 0.5f)]
     private float whatIsAGoodPrice;
 
+    [Header("Events")]
+    public UnityEvent OnMiniGameStart;
+    public UnityEvent<CoursesItemState> OnMiniGameEnd;
+
     private void Start()
     {
-        selectedWorkOfArts = new List<(WorkOfArt, CoursesItemState)>();
+        
+
+        miniGame.OnNegociationEnd.AddListener(MinigameEnd);
+    }
+
+    public void ResetGame()
+    {
+        selectedWorkOfArts.Clear();
 
         for (int i = 0; i < 4; i++)
         {
@@ -42,8 +54,6 @@ public class MinigameManager : MonoBehaviour
             selectedWorkOfArts.Add((availableWorkOfArts[j], CoursesItemState.NotYetProcessed));
             availableWorkOfArts.RemoveAt(j);
         }
-
-        miniGame.OnNegociationEnd.AddListener(MinigameEnd);
     }
 
     public void MinigameStart()
@@ -59,7 +69,7 @@ public class MinigameManager : MonoBehaviour
 
         miniGame.gameObject.SetActive(true);
         miniGame.StartNegociations(selectedWorkOfArts[i].Item1);
-        MusicManager.instance.MusicNegociation();
+        OnMiniGameStart.Invoke();
     }
 
     public void MinigameEnd(bool success, float cost)
@@ -94,7 +104,45 @@ public class MinigameManager : MonoBehaviour
             miniGame.ShowShame();
 
         ShipManager.Instance.shipCanTravel = true;
-        MusicManager.instance.MusicWorldmap();
+        OnMiniGameEnd.Invoke(state);
+        GameManager gm = GameManager.Instance;
+        
+        gm.portActual.AlreadyVisited = true;
+    }
+
+    public void DeadEnd()
+    {
+        for (int i = 0; i < selectedWorkOfArts.Count; i++)
+            if (selectedWorkOfArts[i].Item2 == CoursesItemState.NotYetProcessed || selectedWorkOfArts[i].Item2 == CoursesItemState.Processing)
+                selectedWorkOfArts[i] = (selectedWorkOfArts[i].Item1, CoursesItemState.NegociationFailed);
+    }
+
+    public int ComputeScore()
+    {
+        int score = 0;
+
+        foreach((WorkOfArt woa , CoursesItemState state) in selectedWorkOfArts)
+        {
+            switch(state)
+            {
+                case CoursesItemState.NotYetProcessed:
+                case CoursesItemState.Processing:
+                    return -1;
+                case CoursesItemState.BoughtAtGoodPrice:
+                    score += 25;
+                    break;
+                case CoursesItemState.BoughtAtHighPrice:
+                    score += 15;
+                    break;
+                default:
+                    score += 5;
+                    break;
+            }
+
+            return score;
+        }
+
+        return -1;
     }
 }
 

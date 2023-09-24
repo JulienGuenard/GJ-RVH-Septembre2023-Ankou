@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b531a52ba941e048a7712c8bc0a1150, type: 3}
   m_Name: "Dieu de l'Art\xE9mision"
   m_EditorClassIdentifier: 
-  MinPrize: 5
-  MaxPrize: 50
+  MinPrize: 4500
+  MaxPrize: 7500
   Description: "Provenance : \xE9pave du cap Art\xE9mision (Gr\xE8ce) (dat\xE9e entre
     la fin du IIe et le d\xE9but du Ier si\xE8cle avant notre \xE8re)\r\nTaille :
     2,09 m\r\nMat\xE9riau : bronze\r\nLa statue,  dat\xE9e vers 460 av. n. \xE8.,

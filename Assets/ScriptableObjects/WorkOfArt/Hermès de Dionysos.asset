@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b531a52ba941e048a7712c8bc0a1150, type: 3}
   m_Name: "Herm\xE8s de Dionysos"
   m_EditorClassIdentifier: 
-  MinPrize: 5
-  MaxPrize: 50
+  MinPrize: 4500
+  MaxPrize: 7500
   Description: "Provenance : \xE9pave de Mahdia (Tunisie) (dat\xE9e entre la fin
     du IIe et le d\xE9but du Ier si\xE8cle avant notre \xE8re)\r\nTaille : 1,03 m\r\nMat\xE9riau
     : bronze\r\nLe type de sculpture s'appelle un \"herm\xE8s\", il s'agit \xE0 l'origine

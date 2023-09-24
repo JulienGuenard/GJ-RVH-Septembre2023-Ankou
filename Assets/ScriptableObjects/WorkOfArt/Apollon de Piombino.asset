@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b531a52ba941e048a7712c8bc0a1150, type: 3}
   m_Name: Apollon de Piombino
   m_EditorClassIdentifier: 
-  MinPrize: 5
-  MaxPrize: 50
+  MinPrize: 5500
+  MaxPrize: 8500
   Description: "Provenance : au large de Piombino (Italie)\r\nTaille : 1,17 m\r\nMat\xE9riau
     : bronze\r\nLa statue, dat\xE9e vers le dernier quart du II s. av. n. \xE8.,
     r\xE9presente Apollon, dieu des arts, en jeune homme. Initialement pr\xE9sente
