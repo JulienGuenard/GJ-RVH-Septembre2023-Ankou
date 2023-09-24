@@ -20,6 +20,6 @@ MonoBehaviour:
     repr\xE9sente un dieu en train de lancer quelque chose. Cela peut \xEAtre Zeus,
     dieu du ciel qui lance la foudre, ou son fr\xE8re Pos\xE9idon, dieu de la mer
     arm\xE9 de son trident."
-  Sprite: {fileID: 2800000, guid: 8a664f4e05f299d4a8c074bf58b854dd, type: 3}
+  Illustration: {fileID: 21300000, guid: 8a664f4e05f299d4a8c074bf58b854dd, type: 3}
   Picture: {fileID: 21300000, guid: e12565ab8f05a5e41bd8ffd435bb634a, type: 3}
-  lien: https://mywowo.net/fr/grece/athenes/musee-archeologique/poseidon-salle-15
+  Lien: https://mywowo.net/fr/grece/athenes/musee-archeologique/poseidon-salle-15

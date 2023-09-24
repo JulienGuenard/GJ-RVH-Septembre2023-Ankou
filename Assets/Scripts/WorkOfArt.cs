@@ -10,7 +10,7 @@ public class WorkOfArt : ScriptableObject
     public float MaxPrize;
     [Multiline]
     public string Description;
-    public Texture2D Sprite;
+    public Sprite Illustration;
     public Sprite Picture;
-    public string lien;
+    public string Lien;
 }

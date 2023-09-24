@@ -22,6 +22,6 @@ MonoBehaviour:
     de porter quelque chose comme une lampe, une lanterne ou un plateau. Par la suite,
     la statue aurait \xE0 nouveau repris la mer pour \xEAtre achemin\xE9e vers le
     sud de la Gaule o\xF9 elle fut retrouv\xE9e en 1964."
-  Sprite: {fileID: 2800000, guid: 62cb3d52f38db62478383e2c41d9c869, type: 3}
+  Illustration: {fileID: 21300000, guid: 62cb3d52f38db62478383e2c41d9c869, type: 3}
   Picture: {fileID: 21300000, guid: 3b7d39b83f3d18b4692ba9f8d56d5fd2, type: 3}
-  lien: https://www.museecapdagde.com/le-musee/departement-des-bronzes/l-ephebe
+  Lien: https://www.museecapdagde.com/le-musee/departement-des-bronzes/l-ephebe

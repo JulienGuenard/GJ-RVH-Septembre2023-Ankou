@@ -21,6 +21,6 @@ MonoBehaviour:
     P\xE2ris tenant la pomme d'or de la Discorde pour l'offrir \xE0 Aphrodite, la
     plus belle des d\xE9esses. L'\u0153uvre est attribu\xE9e \xE0 Euphranor, un sculpteur
     et peintre du milieu du IVe si\xE8cles avant notre \xE8re"
-  Sprite: {fileID: 2800000, guid: c5120fb0a3bb2f845a6a5e4607f756ca, type: 3}
+  Illustration: {fileID: 21300000, guid: c5120fb0a3bb2f845a6a5e4607f756ca, type: 3}
   Picture: {fileID: 21300000, guid: 539fe76416f1e2440a47a150dc01e9d4, type: 3}
-  lien: https://mywowo.net/fr/grece/athenes/musee-archeologique/ephebe-d-anticythere-salle-28
+  Lien: https://mywowo.net/fr/grece/athenes/musee-archeologique/ephebe-d-anticythere-salle-28

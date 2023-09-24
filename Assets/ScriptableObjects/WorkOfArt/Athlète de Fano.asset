@@ -22,6 +22,6 @@ MonoBehaviour:
     l'int\xE9grer \xE0 sa collection d'oeuvres d'art grec. Elle fait l'objet d'une
     dispute entre l'Italie, o\xF9 elle a \xE9t\xE9 d\xE9couverte, et les \xC9tats-Unis,
     o\xF9 elle est conserv\xE9e."
-  Sprite: {fileID: 2800000, guid: 07cb7092ece29734a984094eb5733606, type: 3}
+  Illustration: {fileID: 21300000, guid: 07cb7092ece29734a984094eb5733606, type: 3}
   Picture: {fileID: 21300000, guid: 016fb545832f2ec4c95f3c0a3a11fc77, type: 3}
-  lien: https://www.getty.edu/art/collection/object/103QSX
+  Lien: https://www.getty.edu/art/collection/object/103QSX

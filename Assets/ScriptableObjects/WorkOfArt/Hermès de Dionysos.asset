@@ -21,6 +21,6 @@ MonoBehaviour:
     antique. Les Romains r\xE9utilis\xE8rent ces herm\xE8s pour orner leurs jardins.
     Celui-ci repr\xE9sente Dionysos, le dieu du vin, il est dat\xE9 du d\xE9but du
     Ier s. av. n. \xE8. et a \xE9t\xE9 sign\xE9 par le sculpteur Boethos de Chalc\xE9doine."
-  Sprite: {fileID: 2800000, guid: 04b1f03247252b442a1ab07dc33445ff, type: 3}
+  Illustration: {fileID: 21300000, guid: 04b1f03247252b442a1ab07dc33445ff, type: 3}
   Picture: {fileID: 21300000, guid: 071f2f16b950e8d46be6c85a90666aea, type: 3}
-  lien: https://journals.openedition.org/techne/1220?lang=fr
+  Lien: https://journals.openedition.org/techne/1220?lang=fr
