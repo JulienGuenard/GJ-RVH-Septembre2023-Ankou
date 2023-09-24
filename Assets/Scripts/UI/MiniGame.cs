@@ -27,6 +27,12 @@ public class MiniGame : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI merchantName;
     [SerializeField]
+    private Image lostWoaImage;
+    [SerializeField]
+    private Image lostMerchantImage;
+    [SerializeField]
+    private TextMeshProUGUI lostMerchantName;
+    [SerializeField]
     private WorkOfArt workOfArt;
 
     public UnityEvent<bool, float> OnNegociationEnd;
@@ -51,8 +57,17 @@ public class MiniGame : MonoBehaviour
         (playerImage.sprite, playerName.text) = (GameManager.Instance.PlayerData, "Atticus");
         woaImage.sprite = _workOfArt.Illustration;
         (merchantImage.sprite, merchantName.text) = GameManager.Instance.MerchantData;
+        lostWoaImage.sprite = _workOfArt.Illustration;
+        (lostMerchantImage.sprite, lostMerchantName.text) = GameManager.Instance.MerchantData;
 
         reglette.SetUp(workOfArt.MinPrize, workOfArt.MaxPrize);
+        if (!negoBar.gameObject.activeInHierarchy || !negoBar.enabled)
+        {
+            playing.SetActive(true);
+            negoBar.gameObject.SetActive(true);
+            negoBar.enabled = true;
+        }
+
         negoBar.StartPlaying();
         playing.SetActive(true);
     }

@@ -282,6 +282,7 @@ public class NegoBar : MonoBehaviour
 
     public void Stop()
     {
+        isPaused = false;
         isPlaying = false;
     }
 
