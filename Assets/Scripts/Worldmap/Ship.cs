@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Ship : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class Ship : MonoBehaviour
 
     [Header("Cargaison")]
     public List<WorkOfArt> workofartList;
+    public List<GameObject> itemGMBList;
 
     [Header("Events")]
     public UnityEvent OnStartTravel;
@@ -23,6 +26,11 @@ public class Ship : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+
+        foreach(GameObject obj in itemGMBList)
+        {
+            obj.SetActive(false);
+        }
     }
 
     public void Travel()
@@ -62,6 +70,10 @@ public class Ship : MonoBehaviour
 
         Debug.Log("Travel End");
 
+        MusicManager.instance.SFXTravelStop();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Boat_Arrived");
+        StopAllCoroutines();
+
         // Check money dispo
         if (gm.portActual.AlreadyVisited && gm.CanStartNegociation)
         {
@@ -84,5 +96,16 @@ public class Ship : MonoBehaviour
 
         OnEndTravel.Invoke();
         StopCoroutine(TravelParticleUpdate());
+        ShipManager.Instance.shipCanTravel = false;
+    }
+
+    public void AddToCargaison(WorkOfArt art)
+    {
+        if (workofartList.Count == 3) return;
+
+        workofartList.Add(art);
+        itemGMBList[workofartList.Count - 1].SetActive(true);
+        itemGMBList[workofartList.Count - 1].GetComponentInChildren<TextMeshProUGUI>().text = art.name;
+        itemGMBList[workofartList.Count - 1].GetComponentInChildren<Image>().sprite = art.Illustration;
     }
 }

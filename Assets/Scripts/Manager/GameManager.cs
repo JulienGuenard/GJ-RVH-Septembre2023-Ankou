@@ -86,6 +86,13 @@ public class GameManager : MonoBehaviour
     {
         money -= cost;
         uiManager.UpdateMoney(money);
+        ShipManager.Instance.playerShip.AddToCargaison(MinigameManager.Instance.Selection[0].Item1);
+    }
+
+    public void ClientGive(float award)
+    {
+        money += award;
+        uiManager.UpdateMoney(money);
     }
 
     private void Update()
