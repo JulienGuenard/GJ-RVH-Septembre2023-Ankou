@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class Ship : MonoBehaviour
 {
-    [Header("Ship Movement")]
-    public float speed;
+    [Header("FX")]
+    public GameObject trailParticle;
 
     [Header("Cargaison")]
     public List<WorkOfArt> workofartList;
@@ -22,8 +22,20 @@ public class Ship : MonoBehaviour
 
     public void Travel()
     {
+        MusicManager.instance.SFXTravelStart();
+        agent.SetDestination(GameManager.Instance.portActual.dock.position);
+        StopCoroutine(TravelParticleUpdate());
+        StartCoroutine(TravelParticleUpdate());
+
         agent.SetDestination(GameManager.Instance.portActual.dock.position);
         StartCoroutine(WaitForTravelEnd());
+    }
+
+    IEnumerator TravelParticleUpdate()
+    {
+        GameObject obj = Instantiate(trailParticle, transform.position, transform.rotation);
+        yield return new WaitForSeconds(0.07f);
+        StartCoroutine(TravelParticleUpdate());
     }
 
     private IEnumerator WaitForTravelEnd()
@@ -54,5 +66,9 @@ public class Ship : MonoBehaviour
 
         Debug.Log("Starting a mini-game");
         MinigameManager.Instance.MinigameStart();
+
+        MusicManager.instance.SFXTravelStop();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Boat_Arrived");
+        StopCoroutine(TravelParticleUpdate());
     }
 }
