@@ -41,6 +41,20 @@ public class GameManager : MonoBehaviour
     public bool CanStartNegociation => money >= minimumMoneyToNegociate;
 
     [SerializeField]
+    public Sprite PlayerData;
+    [SerializeField]
+    private List<PersonnageData> merchantData;
+
+    public (Sprite, string) MerchantData
+    {
+        get
+        {
+            int i = UnityEngine.Random.Range(0, merchantData.Count);
+            return (merchantData[i].Sprite, merchantData[i].Name);
+        }
+    }
+
+    [SerializeField]
     private float startMoney;
 
     private float money;
@@ -145,4 +159,11 @@ public class GameManager : MonoBehaviour
     {
         uiManager.LaunchScore(MinigameManager.Instance.ComputeScore());
     }
+}
+
+[Serializable]
+public struct PersonnageData
+{
+    public Sprite Sprite;
+    public string Name;
 }

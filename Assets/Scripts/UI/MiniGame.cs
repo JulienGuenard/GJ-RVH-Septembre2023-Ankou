@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+using TMPro;
 
 public class MiniGame : MonoBehaviour
 {
@@ -14,6 +16,16 @@ public class MiniGame : MonoBehaviour
     private NegoBar negoBar;
     [SerializeField]
     private Reglette reglette;
+    [SerializeField]
+    private Image playerImage;
+    [SerializeField]
+    private TextMeshProUGUI playerName;
+    [SerializeField]
+    private Image woaImage;
+    [SerializeField]
+    private Image merchantImage;
+    [SerializeField]
+    private TextMeshProUGUI merchantName;
     [SerializeField]
     private WorkOfArt workOfArt;
 
@@ -35,6 +47,10 @@ public class MiniGame : MonoBehaviour
     {
         workOfArt = _workOfArt;
         cost = workOfArt.MaxPrize;
+
+        (playerImage.sprite, playerName.text) = (GameManager.Instance.PlayerData, "Atticus");
+        woaImage.sprite = _workOfArt.Illustration;
+        (merchantImage.sprite, merchantName.text) = GameManager.Instance.MerchantData;
 
         reglette.SetUp(workOfArt.MinPrize, workOfArt.MaxPrize);
         negoBar.StartPlaying();
