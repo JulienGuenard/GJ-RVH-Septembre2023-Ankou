@@ -50,6 +50,5 @@ public class GameManager : MonoBehaviour
             MusicManager.instance.MusicClear();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        
     }
 }
