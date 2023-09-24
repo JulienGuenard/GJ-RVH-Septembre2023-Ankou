@@ -120,7 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7570088177190142937}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4349499164332591370}
+        m_TargetAssemblyTypeName: UIPlayerOneShot, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &654386839938520320
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +253,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3731938274188403333}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4349499164332591370}
+        m_TargetAssemblyTypeName: UIPlayerOneShot, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1112377807755336959
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +528,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3464093813943964129}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4349499164332591370}
+        m_TargetAssemblyTypeName: UIPlayerOneShot, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1234152164924176337
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,7 +661,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5406442103670021990}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4349499164332591370}
+        m_TargetAssemblyTypeName: UIPlayerOneShot, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1234687550473078002
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,7 +795,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4633326205570135445}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4349499164332591370}
+        m_TargetAssemblyTypeName: UIPlayerOneShot, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1912610507127975479
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,7 +929,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2451138223648192026}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4349499164332591370}
+        m_TargetAssemblyTypeName: UIPlayerOneShot, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2174612153718419189
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,7 +1063,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6679783869019680807}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4349499164332591370}
+        m_TargetAssemblyTypeName: UIPlayerOneShot, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3128561795992077391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,7 +1197,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3811909336350805385}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4349499164332591370}
+        m_TargetAssemblyTypeName: UIPlayerOneShot, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3862818079120317440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,7 +1472,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3035180757067276231}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4349499164332591370}
+        m_TargetAssemblyTypeName: UIPlayerOneShot, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4686599795176368841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1909,7 +2017,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4490034299065834336}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4349499164332591370}
+        m_TargetAssemblyTypeName: UIPlayerOneShot, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5816904539711137849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,7 +2230,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4110468232373952866}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4349499164332591370}
+        m_TargetAssemblyTypeName: UIPlayerOneShot, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6682807883865242663
 GameObject:
   m_ObjectHideFlags: 0
@@ -2453,7 +2585,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4831700328196000863}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4349499164332591370}
+        m_TargetAssemblyTypeName: UIPlayerOneShot, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7777777585748097472
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,6 +2823,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1155453654431144173}
   - component: {fileID: 6642317612481553727}
+  - component: {fileID: -4349499164332591370}
   m_Layer: 5
   m_Name: Page Glossaire
   m_TagString: Untagged
@@ -2727,6 +2872,25 @@ MonoBehaviour:
   - {fileID: 5816904539711137849}
   - {fileID: 8005730350933953216}
   - {fileID: 6813060535845481577}
+--- !u!114 &-4349499164332591370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7986098554329672878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d5e7e7424322a42b9652faadafed25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvent:
+    Guid:
+      Data1: 85591663
+      Data2: 1214901982
+      Data3: -524869470
+      Data4: -1454160772
+    Path: event:/UI_Clic
 --- !u!1 &8005730350933953216
 GameObject:
   m_ObjectHideFlags: 0
