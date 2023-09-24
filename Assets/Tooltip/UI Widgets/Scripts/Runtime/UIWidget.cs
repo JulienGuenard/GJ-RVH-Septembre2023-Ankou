@@ -169,11 +169,8 @@ namespace DevionGames.UIWidgets
 			m_CanvasGroup = GetComponent<CanvasGroup> ();
 			Debug.Log(this.gameObject.name);
 			this.m_Scrollbars = GetComponentsInChildren<Scrollbar>();
-            Debug.Log("1");
 			this.m_CameraTransform = camera;
-            Debug.Log("2");
             this.m_CameraController = this.m_CameraTransform.GetComponent("ThirdPersonCamera") as MonoBehaviour;
-            Debug.Log("3");
             PlayerInfo playerInfo = new PlayerInfo("Player");
 
 			if (playerInfo.gameObject != null)
