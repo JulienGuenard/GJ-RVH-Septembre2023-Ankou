@@ -58,6 +58,8 @@ public class MinigameManager : MonoBehaviour
 
     public void MinigameStart()
     {
+        MusicManager.instance.MusicNegociation();
+
         int i;
         do
         {
@@ -106,6 +108,7 @@ public class MinigameManager : MonoBehaviour
         ShipManager.Instance.shipCanTravel = true;
         OnMiniGameEnd.Invoke(state);
         GameManager gm = GameManager.Instance;
+        MusicManager.instance.MusicWorldmap();
         
         gm.portActual.AlreadyVisited = true;
     }

@@ -107,11 +107,11 @@ public class Ship : MonoBehaviour
 
     public void AddToCargaison(WorkOfArt art)
     {
-        /*if (workofartList.Count == 3) return;
+        if (workofartList.Count == 3) return;
 
         workofartList.Add(art);
         itemGMBList[workofartList.Count - 1].SetActive(true);
         itemGMBList[workofartList.Count - 1].GetComponentInChildren<TextMeshProUGUI>().text = art.name;
-        itemGMBList[workofartList.Count - 1].GetComponentInChildren<Image>().sprite = art.Illustration;*/
+        itemGMBList[workofartList.Count - 1].GetComponentInChildren<Image>().sprite = art.Illustration;
     }
 }
