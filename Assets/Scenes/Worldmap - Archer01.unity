@@ -1113,13 +1113,62 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7503600874322476829, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2039317273}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8536321372699957205, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1230979099}
+    - targetCorrespondingSourceObject: {fileID: 4365014009205573555, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1806467935}
+    - targetCorrespondingSourceObject: {fileID: 181343550437142350, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 280724332}
+    - targetCorrespondingSourceObject: {fileID: 2243642749007266240, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1843260276}
+    - targetCorrespondingSourceObject: {fileID: 7325890992707841832, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 613201421}
+    - targetCorrespondingSourceObject: {fileID: 9000481510388080424, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 771940333}
+    - targetCorrespondingSourceObject: {fileID: 3887354465267180027, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1063759303}
+    - targetCorrespondingSourceObject: {fileID: 3018438678317815520, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 241433821}
   m_SourcePrefab: {fileID: 100100000, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
 --- !u!224 &225158753 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4956605348245255612, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
   m_PrefabInstance: {fileID: 225158752}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &241433817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3018438678317815520, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+  m_PrefabInstance: {fileID: 225158752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &241433821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241433817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537e10be3ce189d47baf06d7b8d41d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instanceName: Tooltip
+  showBackground: 1
+  width: 300
+  color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  tooltipTitle: Argent
+  tooltip: Vous pouvez acheter des oeuvre d'art avec de l'argent.
+  icon: {fileID: 0}
+  properties: []
 --- !u!1001 &261397518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1203,6 +1252,26 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 181343550437142350, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
   m_PrefabInstance: {fileID: 225158752}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &280724332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280724328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537e10be3ce189d47baf06d7b8d41d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instanceName: Tooltip
+  showBackground: 1
+  width: 300
+  color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  tooltipTitle: "Oeuvre d'arts poss\xE9d\xE9es"
+  tooltip: Ce sont les oeuvres d'art que vous avez acheter dans divers ports.
+  icon: {fileID: 0}
+  properties: []
 --- !u!114 &298132610 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3804562195385303663, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
@@ -2099,6 +2168,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: df4b28a2863c2d840b06ee22ed128207, type: 3}
       insertIndex: -1
       addedObject: {fileID: 533462878}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: df4b28a2863c2d840b06ee22ed128207, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 533462880}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: df4b28a2863c2d840b06ee22ed128207, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 533462879}
   m_SourcePrefab: {fileID: 100100000, guid: df4b28a2863c2d840b06ee22ed128207, type: 3}
 --- !u!1 &533462871 stripped
 GameObject:
@@ -2151,6 +2226,48 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &533462879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533462871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537e10be3ce189d47baf06d7b8d41d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instanceName: Tooltip
+  showBackground: 1
+  width: 300
+  color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  tooltipTitle: Navire
+  tooltip: "C'est votre navire de commerce, cliquez sur un port l'y d\xE9placer et
+    y acheter une oeuvre d'art."
+  icon: {fileID: 0}
+  properties: []
+--- !u!135 &533462880
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533462871}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!224 &557153506 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7503600874322476829, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
@@ -2221,6 +2338,26 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7325890992707841832, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
   m_PrefabInstance: {fileID: 225158752}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &613201421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613201417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537e10be3ce189d47baf06d7b8d41d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instanceName: Tooltip
+  showBackground: 1
+  width: 300
+  color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  tooltipTitle: "Oeuvre d'arts poss\xE9d\xE9es"
+  tooltip: Ce sont les oeuvres d'art que vous avez acheter dans divers ports.
+  icon: {fileID: 0}
+  properties: []
 --- !u!1 &623713155
 GameObject:
   m_ObjectHideFlags: 0
@@ -2403,6 +2540,26 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9000481510388080424, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
   m_PrefabInstance: {fileID: 225158752}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &771940333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771940329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537e10be3ce189d47baf06d7b8d41d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instanceName: Tooltip
+  showBackground: 1
+  width: 300
+  color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  tooltipTitle: "Oeuvre d'arts poss\xE9d\xE9es"
+  tooltip: Ce sont les oeuvres d'art que vous avez acheter dans divers ports.
+  icon: {fileID: 0}
+  properties: []
 --- !u!1 &797237487
 GameObject:
   m_ObjectHideFlags: 0
@@ -2977,6 +3134,31 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049810140}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1063759301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3887354465267180027, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+  m_PrefabInstance: {fileID: 225158752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1063759303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063759301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537e10be3ce189d47baf06d7b8d41d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instanceName: Tooltip
+  showBackground: 1
+  width: 300
+  color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  tooltipTitle: Argent
+  tooltip: Vous pouvez acheter des oeuvre d'art avec de l'argent.
+  icon: {fileID: 0}
+  properties: []
 --- !u!1 &1094703801
 GameObject:
   m_ObjectHideFlags: 0
@@ -3928,6 +4110,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223292858}
   m_CullTransparentMesh: 0
+--- !u!1 &1230979093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8536321372699957205, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+  m_PrefabInstance: {fileID: 225158752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1230979099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230979093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537e10be3ce189d47baf06d7b8d41d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instanceName: Tooltip
+  showBackground: 1
+  width: 300
+  color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  tooltipTitle: "Oeuvre d'arts poss\xE9d\xE9es"
+  tooltip: Ce sont les oeuvres d'art que vous avez acheter dans divers ports.
+  icon: {fileID: 0}
+  properties: []
 --- !u!1 &1310855005
 GameObject:
   m_ObjectHideFlags: 0
@@ -5048,6 +5255,7 @@ GameObject:
   - component: {fileID: 1602723066}
   - component: {fileID: 1602723068}
   - component: {fileID: 1602723067}
+  - component: {fileID: 1602723069}
   m_Layer: 5
   m_Name: Reset
   m_TagString: Untagged
@@ -5172,6 +5380,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602723065}
   m_CullTransparentMesh: 1
+--- !u!114 &1602723069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602723065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537e10be3ce189d47baf06d7b8d41d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instanceName: Tooltip
+  showBackground: 1
+  width: 300
+  color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  tooltipTitle: Reset
+  tooltip: 'Comme c''est un prototype, le bouton R fait des miracles.
+
+'
+  icon: {fileID: 0}
+  properties: []
 --- !u!1 &1674995669
 GameObject:
   m_ObjectHideFlags: 0
@@ -5509,6 +5739,31 @@ Transform:
   m_Father: {fileID: 518424211}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1806467930 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4365014009205573555, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+  m_PrefabInstance: {fileID: 225158752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1806467935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806467930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537e10be3ce189d47baf06d7b8d41d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instanceName: Tooltip
+  showBackground: 1
+  width: 300
+  color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  tooltipTitle: "Oeuvre d'arts poss\xE9d\xE9es"
+  tooltip: Ce sont les oeuvres d'art que vous avez acheter dans divers ports.
+  icon: {fileID: 0}
+  properties: []
 --- !u!1 &1838734989
 GameObject:
   m_ObjectHideFlags: 0
@@ -5682,6 +5937,26 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2243642749007266240, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
   m_PrefabInstance: {fileID: 225158752}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1843260276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843260272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537e10be3ce189d47baf06d7b8d41d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instanceName: Tooltip
+  showBackground: 1
+  width: 300
+  color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  tooltipTitle: "Oeuvre d'arts poss\xE9d\xE9es"
+  tooltip: Ce sont les oeuvres d'art que vous avez acheter dans divers ports.
+  icon: {fileID: 0}
+  properties: []
 --- !u!1001 &1885313887
 PrefabInstance:
   m_ObjectHideFlags: 0
