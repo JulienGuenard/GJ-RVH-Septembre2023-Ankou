@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Worldmap2.unity
-    guid: 231a67cd6f79e0f478d3be92cdd01ca6
+    path: Assets/Scenes/Worldmap - Archer01.unity
+    guid: 9206a747665ac8f478820574973702d5
   m_configObjects: {}
