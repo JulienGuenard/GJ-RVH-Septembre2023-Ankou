@@ -39,8 +39,7 @@ public class MinigameManager : MonoBehaviour
 
     private void Start()
     {
-        
-
+        ResetGame();
         miniGame.OnNegociationEnd.AddListener(MinigameEnd);
     }
 
@@ -48,12 +47,16 @@ public class MinigameManager : MonoBehaviour
     {
         selectedWorkOfArts.Clear();
 
+        List<WorkOfArt> tmp = new(availableWorkOfArts.ToArray());
+
         for (int i = 0; i < 4; i++)
         {
-            int j = Random.Range(0, availableWorkOfArts.Count);
-            selectedWorkOfArts.Add((availableWorkOfArts[j], CoursesItemState.NotYetProcessed));
-            availableWorkOfArts.RemoveAt(j);
+            int j = Random.Range(0, tmp.Count);
+            selectedWorkOfArts.Add((tmp[j], CoursesItemState.NotYetProcessed));
+            tmp.RemoveAt(j);
         }
+
+        Debug.Log($"size at reset {selectedWorkOfArts.Count}");
     }
 
     public void MinigameStart()
@@ -88,17 +91,27 @@ public class MinigameManager : MonoBehaviour
 
         if (success)
         {
+            Debug.Log("réussite");
             GameManager.Instance.BuyFor(cost);
 
             float diff = woa.MaxPrize - woa.MinPrize;
 
             if (cost - woa.MinPrize <= diff * whatIsAGoodPrice)
+            {
+                Debug.Log("bon prix");
                 state = CoursesItemState.BoughtAtGoodPrice;
+            }
             else
+            {
+                Debug.Log("prix haut");
                 state = CoursesItemState.BoughtAtHighPrice;
+            }
         }
         else
+        {
+            Debug.Log("échec");
             state = CoursesItemState.NegociationFailed;
+        }
 
         selectedWorkOfArts[i] = (woa, state);
 
@@ -126,9 +139,11 @@ public class MinigameManager : MonoBehaviour
 
         foreach((WorkOfArt woa , CoursesItemState state) in selectedWorkOfArts)
         {
+            Debug.Log(woa.name + " : " + state);
             switch(state)
             {
                 case CoursesItemState.NotYetProcessed:
+                    return -1;
                 case CoursesItemState.Processing:
                     return -1;
                 case CoursesItemState.BoughtAtGoodPrice:
@@ -141,11 +156,9 @@ public class MinigameManager : MonoBehaviour
                     score += 5;
                     break;
             }
-
-            return score;
         }
 
-        return -1;
+        return score;
     }
 }
 

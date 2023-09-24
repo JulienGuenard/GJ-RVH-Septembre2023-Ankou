@@ -58,7 +58,8 @@ public class UIManager : MonoBehaviour
                 CoursesItemState.Processing => "P...",
                 CoursesItemState.BoughtAtGoodPrice => "GP",
                 CoursesItemState.BoughtAtHighPrice => "HP",
-                _ => "NF",
+                CoursesItemState.NegociationFailed => "NF",
+                _ => "1?"
             };
         }
     }
@@ -103,6 +104,7 @@ public class UIManager : MonoBehaviour
 
     public void LaunchScore(int v)
     {
+        Debug.Log($"launch score={v}");
         EndPanel.SetActive(true);
 
         text75.gameObject.SetActive(false);

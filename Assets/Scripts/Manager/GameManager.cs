@@ -95,11 +95,8 @@ public class GameManager : MonoBehaviour
 
     public void UpdateArrow(Transform transform, bool isLastPort, bool alreadyVisited)
     {
-        Debug.Log("update arrow " + transform.parent.name + " last ? " + isLastPort);
         if (isLastPort)
         {
-            Debug.Log($"ReadyToEndGame ? {ReadyToEndGame}");
-
             if (!ReadyToEndGame)
                 transform.gameObject.SetActive(false);
             else
@@ -126,7 +123,7 @@ public class GameManager : MonoBehaviour
     {
         money -= cost;
         uiManager.UpdateMoney(money);
-        ShipManager.Instance.playerShip.AddToCargaison(MinigameManager.Instance.Selection[0].Item1);
+        //ShipManager.Instance.playerShip.AddToCargaison(MinigameManager.Instance.Selection[0].Item1);
 
         if (!CanStartNegociation)
             GameOver();

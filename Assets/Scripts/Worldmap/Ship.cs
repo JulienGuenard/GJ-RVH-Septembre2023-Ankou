@@ -85,12 +85,8 @@ public class Ship : MonoBehaviour
 
         if(gm.portActual.isLastPort)
         {
-            Debug.Log("bonjour");
             if (gm.ReadyToEndGame)
-            {
                 GameManager.Instance.LaunchScore();
-                Debug.Log("au revoir");
-            }
             else
                 sm.shipCanTravel = true;
 

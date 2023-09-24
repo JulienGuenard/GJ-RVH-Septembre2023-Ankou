@@ -14,7 +14,6 @@ public class PageGlossaire : MonoBehaviour
     {
         for(int i=0; i<list.Count; i++)
         {
-            Debug.Log(i);
             Transform t = elements[i].transform;
 
             Sprite illu = list[i].Illustration;

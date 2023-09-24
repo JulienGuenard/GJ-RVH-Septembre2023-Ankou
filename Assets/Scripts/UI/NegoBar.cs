@@ -85,20 +85,20 @@ public class NegoBar : MonoBehaviour
         highPercentage = _highPercentage;
 
         CheckLayers(ref _lowPercentage, ref _middlePercentage, ref _highPercentage);
-        Debug.Log($"{_lowPercentage}, {_middlePercentage}, {_highPercentage}");
+        //Debug.Log($"{_lowPercentage}, {_middlePercentage}, {_highPercentage}");
 
         float trueLowSize = lowGO == backgroundBar ? totalSize : _lowPercentage * totalSize / 100f;
-        Debug.Log($"low size : {trueLowSize}");
+        //Debug.Log($"low size : {trueLowSize}");
         ((RectTransform)lowGO.transform).SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, trueLowSize);
         lowGO.GetComponent<Image>().color = lowColor;
 
         float trueMiddleSize = middleGO == backgroundBar ? totalSize : _middlePercentage * totalSize / 100f;
-        Debug.Log($"middle size : {trueMiddleSize}");
+        //Debug.Log($"middle size : {trueMiddleSize}");
         ((RectTransform)middleGO.transform).SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, trueMiddleSize);
         middleGO.GetComponent<Image>().color = middleColor;
 
         float trueHighSize = highGO == backgroundBar ? totalSize : _highPercentage * totalSize / 100f;
-        Debug.Log($"high size : {trueHighSize}");
+        //Debug.Log($"high size : {trueHighSize}");
         ((RectTransform)highGO.transform).SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, trueHighSize);
         highGO.GetComponent<Image>().color = highColor;
     }
@@ -221,7 +221,7 @@ public class NegoBar : MonoBehaviour
 
         float truePos = cursor.transform.localPosition.x;
 
-        Debug.Log($"truePos = {truePos}");
+        //Debug.Log($"truePos = {truePos}");
 
         GameObject bar;
 
@@ -230,33 +230,33 @@ public class NegoBar : MonoBehaviour
         float minX = middleLocalPosX - middleTransform.rect.size.x / 2f;
         float maxX = middleLocalPosX + middleTransform.rect.size.x / 2f;
 
-        Debug.Log($"min Middle = {minX}, max Middle = {maxX}");
+        //Debug.Log($"min Middle = {minX}, max Middle = {maxX}");
 
         if (truePos >= minX && truePos <= maxX) // isInMiddleBar
         {
-            Debug.Log("Is in Middle");
+            //Debug.Log("Is in Middle");
             RectTransform topTransform = (RectTransform)topBar.transform;
             float topLocalPosX = middleTransform.localPosition.x;
             minX = middleLocalPosX + topLocalPosX - topTransform.rect.size.x / 2f;
             maxX = middleLocalPosX + topLocalPosX + topTransform.rect.size.x / 2f;
 
-            Debug.Log($"min Top = {minX}, max Top = {maxX}");
+            //Debug.Log($"min Top = {minX}, max Top = {maxX}");
 
             if (truePos >= minX && truePos <= maxX) // isTopBar
             {
                 bar = topBar;
-                Debug.Log("Is Top");
+                //Debug.Log("Is Top");
             }
             else
             {
                 bar = middleBar;
-                Debug.Log("Is Middle");
+                //Debug.Log("Is Middle");
             }
         }
         else
         {
             bar = backgroundBar;
-            Debug.Log("Is Background");
+            //Debug.Log("Is Background");
         }
 
         if (bar == lowGO)
