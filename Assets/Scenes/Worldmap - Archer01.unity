@@ -1091,10 +1091,7 @@ MonoBehaviour:
   width: 260
   color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   tooltipTitle: Ambracie
-  tooltip: "<b>N\xE9gociez une oeuvre et achetez l\xE0 avant d'aller \xE0 Ath\xE8nes.</b>\n\nAu
-    centre d\u2019un riche terroir (bl\xE9, oliviers, vignes, \xE9levage). L\u2019industrie
-    est diversifi\xE9e (parfums, draps fins, parchemins). Sa biblioth\xE8que, riche
-    de 200 000 volumes, rivalise avec celle d'Alexandrie"
+  tooltip: "<b>N\xE9gociez une oeuvre et achetez l\xE0 avant d'aller \xE0 Ath\xE8nes.</b>"
   icon: {fileID: 0}
   properties: []
 --- !u!1001 &225158752
@@ -1801,10 +1798,7 @@ MonoBehaviour:
   width: 260
   color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   tooltipTitle: Pergame
-  tooltip: "<b>N\xE9gociez une oeuvre et achetez l\xE0 avant d'aller \xE0 Ath\xE8nes.</b>\n\nFond\xE9e
-    entre 650 et 625 av. J.-C. par Gorgos, fils du tyran de Corinthe Cyps\xE9los.
-    Son fils, P\xE9riandre, est chass\xE9 par les citoyens, qui installent une oligarchie
-    plus mod\xE9r\xE9e."
+  tooltip: "<b>N\xE9gociez une oeuvre et achetez l\xE0 avant d'aller \xE0 Ath\xE8nes.</b>"
   icon: {fileID: 0}
   properties: []
 --- !u!1 &382210873
@@ -2219,9 +2213,7 @@ MonoBehaviour:
   color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   tooltipTitle: "Ath\xE8nes"
   tooltip: "<b>Rendez vous \xE0 Ath\xE8nes pour finir la partie, votre score varie
-    selon l'argent restant.</b>\n\nLa ville s'\xE9tend sur la plaine d'Attique, domin\xE9e
-    par les monts \xC6gial\xE9e \xE0 l'ouest, Parn\xE8s au nord, Lycabette au nord-est
-    (mont faisant partie de la cha\xEEne Pent\xE9lique) et Hymette \xE0 l'est."
+    selon l'argent restant.</b>"
   icon: {fileID: 0}
   properties: []
 --- !u!1 &518424210
@@ -3985,10 +3977,7 @@ MonoBehaviour:
   width: 260
   color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   tooltipTitle: Pella
-  tooltip: "<b>N\xE9gociez une oeuvre et achetez l\xE0 avant d'aller \xE0 Ath\xE8nes.</b>\n\nB\xE2tie
-    sur une hauteur qui s\u2019abaisse en pente vers le nord-ouest, est entour\xE9e
-    de marais form\xE9s par l'\xE9coulement des lacs et d\u2019une profondeur qui
-    les rend impraticables l\u2019\xE9t\xE9 comme l\u2019hiver."
+  tooltip: "<b>N\xE9gociez une oeuvre et achetez l\xE0 avant d'aller \xE0 Ath\xE8nes.</b>"
   icon: {fileID: 0}
   properties: []
 --- !u!1 &1207518161
@@ -5427,11 +5416,7 @@ MonoBehaviour:
   width: 260
   color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   tooltipTitle: Rhodes
-  tooltip: "<b>N\xE9gociez une oeuvre et achetez l\xE0 avant d'aller \xE0 Ath\xE8nes.</b>\n\nLa
-    ville rejoint en 470 av. J.-C. la ligue Ath\xE9nienne et reste une puissance
-    mineure durant cette p\xE9riode. Sous supervision d'Ath\xE8nes jusqu'alors, Lindos,
-    Camiros et Ialysos s'en d\xE9tachent \xE0 la suite d'une r\xE9bellion en 411
-    av. J.-C. En 408 ou 407 av. J.-C."
+  tooltip: "<b>N\xE9gociez une oeuvre et achetez l\xE0 avant d'aller \xE0 Ath\xE8nes.</b>"
   icon: {fileID: 0}
   properties: []
 --- !u!1 &1660601760
