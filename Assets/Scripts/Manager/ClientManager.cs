@@ -25,7 +25,7 @@ public class ClientManager : MonoBehaviour
                 {
                     sm.playerShip.workofartList.Clear();
                     sm.shipCanTravel = true;
-                    ResourceManager.instance.money += clientAwardMoney;
+                    GameManager.Instance.ClientGive(clientAwardMoney);
                     break;
                 }
 
