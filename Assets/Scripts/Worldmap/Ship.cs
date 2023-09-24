@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Ship : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class Ship : MonoBehaviour
 
     [Header("Cargaison")]
     public List<WorkOfArt> workofartList;
+
+    [Header("Events")]
+    public UnityEvent OnStartTravel;
+    public UnityEvent OnEndTravel;
 
     Animator animator;
     NavMeshAgent agent;
@@ -22,7 +27,7 @@ public class Ship : MonoBehaviour
 
     public void Travel()
     {
-        MusicManager.instance.SFXTravelStart();
+        OnStartTravel.Invoke();
         agent.SetDestination(GameManager.Instance.portActual.dock.position);
         StopCoroutine(TravelParticleUpdate());
         StartCoroutine(TravelParticleUpdate());
@@ -58,17 +63,26 @@ public class Ship : MonoBehaviour
         Debug.Log("Travel End");
 
         // Check money dispo
-        if (GameManager.Instance.Money <= /**/ 300 /* à remplacer */)
+        if (gm.portActual.AlreadyVisited && gm.CanStartNegociation)
         {
             sm.shipCanTravel = true;
+            return;
+        }
+
+        if(gm.portActual.isLastPort)
+        {
+            if(gm.ReadyToEndGame)
+                GameManager.Instance.LaunchScore();
+            else
+                sm.shipCanTravel = true;
+
             return;
         }
 
         Debug.Log("Starting a mini-game");
         MinigameManager.Instance.MinigameStart();
 
-        MusicManager.instance.SFXTravelStop();
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Boat_Arrived");
+        OnEndTravel.Invoke();
         StopCoroutine(TravelParticleUpdate());
     }
 }

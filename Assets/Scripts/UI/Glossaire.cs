@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Glossaire : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject recapOeuvres;
+
     [Header("Data Refs")]
     [SerializeField]
     private List<WorkOfArt> workOfArts;
@@ -65,6 +68,9 @@ public class Glossaire : MonoBehaviour
     {
         if(index==0)
         {
+            if(GameManager.Instance.ReadyToEndGame)
+                recapOeuvres.SetActive(true);
+
             Close();
             return;
         }
