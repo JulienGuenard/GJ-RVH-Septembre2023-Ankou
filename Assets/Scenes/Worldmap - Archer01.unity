@@ -5268,6 +5268,16 @@ MonoBehaviour:
   visitedArrowMaterial: {fileID: 0}
   portActual: {fileID: 0}
   minimumMoneyToNegociate: 5500
+  PlayerData: {fileID: 21300000, guid: 9d41fe82936e6014ebb3879e1bc6622b, type: 3}
+  merchantData:
+  - Sprite: {fileID: 21300000, guid: b7deed58e174bbc41830e1310d531076, type: 3}
+    Name: Oceanus XI
+  - Sprite: {fileID: 21300000, guid: 6ff7656e4dc6c3e4a8153af061ce3dcf, type: 3}
+    Name: Vitrum Cepa
+  - Sprite: {fileID: 21300000, guid: 41d0e7298e4ac924fa45397d4872d58b, type: 3}
+    Name: Germanicus
+  - Sprite: {fileID: 21300000, guid: 2b37f1c9825f7ae4698b08286780c23d, type: 3}
+    Name: Magaus
   startMoney: 20000
 --- !u!4 &1579212838
 Transform:
