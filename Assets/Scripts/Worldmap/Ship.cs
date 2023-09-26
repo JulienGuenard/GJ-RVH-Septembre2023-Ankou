@@ -27,10 +27,10 @@ public class Ship : MonoBehaviour
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
 
-        foreach(GameObject obj in itemGMBList)
+        /*foreach(GameObject obj in itemGMBList)
         {
             obj.SetActive(false);
-        }
+        }*/
     }
 
     public void Travel()
