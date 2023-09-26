@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Worldmap - Archer01.unity
     guid: 9206a747665ac8f478820574973702d5
+  - enabled: 1
+    path: Assets/Scenes/Worldmap - Flupi.unity
+    guid: 611443bbb55693a44a1d49caa1cfdea5
   m_configObjects: {}
