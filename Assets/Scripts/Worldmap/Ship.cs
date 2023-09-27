@@ -8,39 +8,32 @@ using UnityEngine.UI;
 
 public class Ship : MonoBehaviour
 {
+    public Camera camera2;
+
     [Header("FX")]
     public GameObject trailParticle;
-
-    [Header("Cargaison")]
-    public List<WorkOfArt> workofartList;
-    public List<GameObject> itemGMBList;
 
     [Header("Events")]
     public UnityEvent OnStartTravel;
     public UnityEvent OnEndTravel;
 
-    Animator animator;
     NavMeshAgent agent;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
-
-        /*foreach(GameObject obj in itemGMBList)
-        {
-            obj.SetActive(false);
-        }*/
     }
 
     public void Travel()
     {
+        PortManager pm = PortManager.Instance;
+
         OnStartTravel.Invoke();
-        agent.SetDestination(GameManager.Instance.portActual.dock.position);
+        agent.SetDestination(pm.portActual.dock.position);
         StopCoroutine(TravelParticleUpdate());
         StartCoroutine(TravelParticleUpdate());
 
-        agent.SetDestination(GameManager.Instance.portActual.dock.position);
+        agent.SetDestination(pm.portActual.dock.position);
         StartCoroutine(WaitForTravelEnd());
     }
 
@@ -65,6 +58,9 @@ public class Ship : MonoBehaviour
 
     public void TravelEnd()
     {
+        Camera.SetupCurrent(camera2);
+        PortManager pm = PortManager.Instance;
+        MoneyManager mm = MoneyManager.Instance;
 
         if (!gm)
             gm = GameManager.Instance;
@@ -77,13 +73,13 @@ public class Ship : MonoBehaviour
         StopAllCoroutines();
 
         // Check money dispo
-        if (gm.portActual.AlreadyVisited && gm.CanStartNegociation)
+        if (pm.portActual.AlreadyVisited && mm.CanStartNegociation)
         {
             sm.shipCanTravel = true;
             return;
         }
 
-        if(gm.portActual.isLastPort)
+        if(pm.portActual.isLastPort)
         {
             if (gm.ReadyToEndGame)
                 GameManager.Instance.LaunchScore();
@@ -99,15 +95,5 @@ public class Ship : MonoBehaviour
         OnEndTravel.Invoke();
         StopCoroutine(TravelParticleUpdate());
         ShipManager.Instance.shipCanTravel = false;
-    }
-
-    public void AddToCargaison(WorkOfArt art)
-    {
-        /*if (workofartList.Count == 3) return;
-
-        workofartList.Add(art);
-        itemGMBList[workofartList.Count - 1].SetActive(true);
-        itemGMBList[workofartList.Count - 1].GetComponentInChildren<TextMeshProUGUI>().text = art.name;
-        itemGMBList[workofartList.Count - 1].GetComponentInChildren<Image>().sprite = art.Illustration;*/
     }
 }

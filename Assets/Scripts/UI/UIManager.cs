@@ -41,7 +41,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateMoney(GameManager.Instance.Money);
+        UpdateMoney(MoneyManager.Instance.Money);
     }
 
     public void UpdateListeDeCourses()

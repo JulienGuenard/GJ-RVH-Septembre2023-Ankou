@@ -7,11 +7,11 @@ public class MusicManager : MonoBehaviour
     private FMOD.Studio.EventInstance music;
     private FMOD.Studio.EventInstance shipTravel;
 
-    public static MusicManager instance;
+    public static MusicManager Instance;
 
     void Awake()
     {
-        if (instance == null) instance = this;
+        if (Instance == null) Instance = this;
     }
 
     private void Start()

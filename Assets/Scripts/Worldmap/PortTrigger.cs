@@ -13,10 +13,12 @@ public class PortTrigger : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GameManager.Instance.portActual == port) return;
+        PortManager pm = PortManager.Instance;
+
+        if (pm.portActual == port) return;
         if (!ShipManager.Instance.shipCanTravel) return;
 
-        GameManager.Instance.portActual = port;
+        pm.portActual = port;
         ShipManager.Instance.playerShip.Travel();
 
         FMODUnity.RuntimeManager.PlayOneShot("event:/UI_Clic");

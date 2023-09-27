@@ -10,6 +10,7 @@ public class Port : MonoBehaviour
     public bool isLastPort;
     
     private bool alreadyVisited;
+
     public bool AlreadyVisited
     {
         get
@@ -19,13 +20,7 @@ public class Port : MonoBehaviour
         set
         {
             alreadyVisited = value;
-            GameManager.Instance.UpdateArrow(transform.Find("arrow"), isLastPort, alreadyVisited);
+            PortManager.Instance.UpdateArrow(transform.Find("arrow"), isLastPort, alreadyVisited);
         }
     }
-
-    //[Header("Oeuvre d'art disponibles")]
-    //public List<WorkOfArt> workofartList; // oeuvre d'art disponible à acheter
-
-    //[Header("Port du client (objectif)")]
-    //public List<WorkOfArt> workofartGoalList; // oeuvre d'art à ramener à ce port
 }
