@@ -8,8 +8,6 @@ using UnityEngine.UI;
 
 public class Ship : MonoBehaviour
 {
-    public Camera camera2;
-
     [Header("FX")]
     public GameObject trailParticle;
 
@@ -58,7 +56,6 @@ public class Ship : MonoBehaviour
 
     public void TravelEnd()
     {
-        Camera.SetupCurrent(camera2);
         PortManager pm = PortManager.Instance;
         MoneyManager mm = MoneyManager.Instance;
 
