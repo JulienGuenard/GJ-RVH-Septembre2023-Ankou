@@ -21,29 +21,21 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    [Serializable]
+    public struct PersonnageData
+    {
+        public Sprite Sprite;
+        public string Name;
+    }
+
     [Header("Refs")]
-    [SerializeField]
-    private UIManager uiManager;
-    [SerializeField]
-    private Port lastPort;
-    [SerializeField]
-    private List<Port> gamePorts;
-    public List<Port> GamePorts => gamePorts;
-    [SerializeField]
-    private Material notVisitedYetArrowMaterial;
-    [SerializeField]
-    private Material visitedArrowMaterial;
+                        public UIManager uiManager;
+    [SerializeField]    private Material notVisitedYetArrowMaterial;
+    [SerializeField]    private Material visitedArrowMaterial;
 
     [Header("Data")]
-    public Port portActual;
-    [SerializeField]
-    private float minimumMoneyToNegociate;
-    public bool CanStartNegociation => money >= minimumMoneyToNegociate;
-
-    [SerializeField]
-    public Sprite PlayerData;
-    [SerializeField]
-    private List<PersonnageData> merchantData;
+    [SerializeField]    public Sprite PlayerData;
+    [SerializeField]    private List<PersonnageData> merchantData;
 
     public (Sprite, string) MerchantData
     {
@@ -53,13 +45,7 @@ public class GameManager : MonoBehaviour
             return (merchantData[i].Sprite, merchantData[i].Name);
         }
     }
-
-    [SerializeField]
-    private float startMoney;
-
-    private float money;
-    public float Money => money;
-
+    
     private void Start()
     {
         Debug.Log("StartGame");
@@ -68,24 +54,29 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
+        MoneyManager mm = MoneyManager.Instance;
+
         Debug.Log("ResetGame");
-        money = startMoney;
+        mm.money = mm.startMoney;
 
         MinigameManager.Instance.ResetGame();
-        uiManager.UpdateMoney(money);
+        uiManager.UpdateMoney(mm.money);
 
-        foreach (Port p in gamePorts)
+        PortManager pm = PortManager.Instance;
+
+        foreach (Port p in pm.gamePorts)
             p.AlreadyVisited = false;
 
-        lastPort.isLastPort = true;
-        lastPort.AlreadyVisited = false;
+        pm.lastPort.isLastPort = true;
+        pm.lastPort.AlreadyVisited = false;
     }
 
     public bool ReadyToEndGame
     {
         get
         {
-            foreach (Port p in gamePorts)
+            PortManager pm = PortManager.Instance;
+            foreach (Port p in pm.gamePorts)
                 if (!p.AlreadyVisited)
                     return false;
 
@@ -93,61 +84,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void UpdateArrow(Transform transform, bool isLastPort, bool alreadyVisited)
-    {
-        if (isLastPort)
-        {
-            if (!ReadyToEndGame)
-                transform.gameObject.SetActive(false);
-            else
-                transform.gameObject.SetActive(true);
-
-            return;
-        }
-
-        if (!alreadyVisited)
-            transform.gameObject.SetActive(true);
-            //transform.GetComponent<MeshRenderer>().material = notVisitedYetArrowMaterial;
-        else
-            transform.gameObject.SetActive(false);
-            //transform.GetComponent<MeshRenderer>().material = visitedArrowMaterial;
-
-        foreach (Port p in gamePorts)
-            if (!p.AlreadyVisited)
-                return;
-
-        lastPort.AlreadyVisited = false;
-    }
-
-    public void BuyFor(float cost)
-    {
-        money -= cost;
-        uiManager.UpdateMoney(money);
-        //ShipManager.Instance.playerShip.AddToCargaison(MinigameManager.Instance.Selection[0].Item1);
-
-        if (!CanStartNegociation)
-            GameOver();
-    }
-
     public void GameOver()
     {
+        PortManager pm = PortManager.Instance;
         MinigameManager.Instance.DeadEnd();
 
-        foreach (Port p in gamePorts)
+        foreach (Port p in pm.gamePorts)
             p.AlreadyVisited = true;
-    }
-
-    public void ClientGive(float award)
-    {
-        money += award;
-        uiManager.UpdateMoney(money);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            MusicManager.instance.MusicClear();
+            MusicManager.Instance.MusicClear();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
@@ -156,11 +106,4 @@ public class GameManager : MonoBehaviour
     {
         uiManager.LaunchScore(MinigameManager.Instance.ComputeScore());
     }
-}
-
-[Serializable]
-public struct PersonnageData
-{
-    public Sprite Sprite;
-    public string Name;
 }

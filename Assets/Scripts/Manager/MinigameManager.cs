@@ -61,7 +61,7 @@ public class MinigameManager : MonoBehaviour
 
     public void MinigameStart()
     {
-        MusicManager.instance.MusicNegociation();
+        MusicManager.Instance.MusicNegociation();
 
         int i;
         do
@@ -92,7 +92,7 @@ public class MinigameManager : MonoBehaviour
         if (success)
         {
             Debug.Log("réussite");
-            GameManager.Instance.BuyFor(cost);
+            MoneyManager.Instance.BuyFor(cost);
 
             float diff = woa.MaxPrize - woa.MinPrize;
 
@@ -121,9 +121,10 @@ public class MinigameManager : MonoBehaviour
         ShipManager.Instance.shipCanTravel = true;
         OnMiniGameEnd.Invoke(state);
         GameManager gm = GameManager.Instance;
-        MusicManager.instance.MusicWorldmap();
+        PortManager pm = PortManager.Instance;
+        MusicManager.Instance.MusicWorldmap();
         
-        gm.portActual.AlreadyVisited = true;
+        pm.portActual.AlreadyVisited = true;
     }
 
     public void DeadEnd()
@@ -160,13 +161,4 @@ public class MinigameManager : MonoBehaviour
 
         return score;
     }
-}
-
-public enum CoursesItemState
-{
-    NotYetProcessed,
-    Processing,
-    BoughtAtGoodPrice,
-    BoughtAtHighPrice,
-    NegociationFailed
 }

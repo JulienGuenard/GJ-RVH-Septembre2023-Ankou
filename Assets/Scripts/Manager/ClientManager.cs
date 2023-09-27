@@ -5,36 +5,20 @@ using UnityEngine;
 public class ClientManager : MonoBehaviour
 {
     [Header("Client")]
-    public Award clientAward;
     public int clientAwardMoney;
 
-    public static ClientManager instance;
+    public static ClientManager Instance;
 
     void Awake()
     {
-        if (instance == null) instance = this;
+        if (Instance == null) Instance = this;
     }
 
     public void ClientGoalAchieved()
     {
         ShipManager sm = ShipManager.Instance;
 
-        switch (clientAward)
-        {
-            case Award.Money:
-                {
-                    sm.playerShip.workofartList.Clear();
-                    sm.shipCanTravel = true;
-                    GameManager.Instance.ClientGive(clientAwardMoney);
-                    break;
-                }
-
-            case Award.Victory:
-                {
-                    sm.shipCanTravel = true;
-                    /* à remplir */
-                    break;
-                }
-        }
+        sm.shipCanTravel = true;
+        MoneyManager.Instance.ClientGive(clientAwardMoney);
     }
 }

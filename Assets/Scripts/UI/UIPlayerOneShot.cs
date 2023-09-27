@@ -5,8 +5,6 @@ using FMODUnity;
 
 public class UIPlayerOneShot : MonoBehaviour
 {
-
-
     public EventReference soundEvent;
     public void PlaySoundEvent()
     {
