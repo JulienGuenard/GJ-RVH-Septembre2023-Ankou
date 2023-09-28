@@ -7,9 +7,16 @@ public class MoneyManager : MonoBehaviour
     [SerializeField]
     public float startMoney;
 
-    public float money;
-    public float Money => money;
+    [SerializeField]
+    private float money;
+    public float Money
+    {
+        get => money;
+        set { money = value; }
+    }
+
     [SerializeField] private float minimumMoneyToNegociate;
+
     public bool CanStartNegociation => money >= minimumMoneyToNegociate;
 
     public static MoneyManager Instance;

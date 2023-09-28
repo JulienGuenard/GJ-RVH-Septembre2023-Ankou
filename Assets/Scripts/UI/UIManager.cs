@@ -139,7 +139,7 @@ public class UIManager : MonoBehaviour
     public void PNJPanelHide()
     {
         PNJPanel.SetActive(false);
-        CameraManager.Instance.Zoom();
+        CameraManager.Instance.ZoomOut();
     }
 
     private void Update()

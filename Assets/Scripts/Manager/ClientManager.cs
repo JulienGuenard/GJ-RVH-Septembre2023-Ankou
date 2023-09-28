@@ -16,9 +16,7 @@ public class ClientManager : MonoBehaviour
 
     public void ClientGoalAchieved()
     {
-        ShipManager sm = ShipManager.Instance;
-
-        sm.shipCanTravel = true;
+        ShipManager.Instance.shipCanTravel = true;
         MoneyManager.Instance.ClientGive(clientAwardMoney);
     }
 }

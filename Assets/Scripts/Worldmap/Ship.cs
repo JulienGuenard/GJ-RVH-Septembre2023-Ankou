@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,21 +15,25 @@ public class Ship : MonoBehaviour
     public GameObject trailParticle;
 
     [Header("Events")]
-    public UnityEvent OnStartTravel;
-    public UnityEvent OnEndTravel;
+    public UnityEvent OnTravelStart;
+    public UnityEvent OnTravelEnd;
+    public UnityEvent OnDock;
+    public Action OnDockOut;
 
     NavMeshAgent agent;
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        //OnDock.AddListener(CameraManager.Instance.ZoomIn);
+        OnTravelStart.AddListener(CameraManager.Instance.ZoomOut);
     }
 
     public void Travel()
     {
         PortManager pm = PortManager.Instance;
 
-        OnStartTravel.Invoke();
+        OnTravelStart.Invoke();
         agent.SetDestination(pm.portActual.dock.position);
         StopCoroutine(TravelParticleUpdate());
         StartCoroutine(TravelParticleUpdate());
@@ -48,7 +53,7 @@ public class Ship : MonoBehaviour
 
     private IEnumerator WaitForTravelEnd()
     {
-        yield return new WaitWhile(() => agent.pathPending || agent.hasPath || agent.velocity.sqrMagnitude == 0f);
+        yield return new WaitWhile(() => agent.pathPending || agent.hasPath || agent.velocity.sqrMagnitude <= 0.1f);
 
         TravelEnd();
     }
@@ -68,8 +73,9 @@ public class Ship : MonoBehaviour
             sm = ShipManager.Instance;
 
         Debug.Log("Travel End");
-
-        OnStartTravel.Invoke();
+        OnTravelEnd.Invoke();
+        Debug.Log("OnDock");
+        OnDock.Invoke();
         StopAllCoroutines();
 
         // Check money dispo
@@ -89,11 +95,6 @@ public class Ship : MonoBehaviour
             return;
         }
 
-        Debug.Log("Starting a mini-game");
-
-        MinigameManager.Instance.MinigameStart();
-
-        OnEndTravel.Invoke();
         StopCoroutine(TravelParticleUpdate());
         ShipManager.Instance.shipCanTravel = false;
     }

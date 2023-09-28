@@ -12,9 +12,9 @@ public class CameraManager : MonoBehaviour
     public Transform cameraZoomTarget;
     public Transform cameraShipPivot;
     Transform ship;
-
-    bool isZooming;
-    bool hasZoomed;
+    [SerializeField]
+    private Transform root;
+    private Vector3 target;
 
     Vector3 cameraWorldmapPosition;
 
@@ -25,6 +25,7 @@ public class CameraManager : MonoBehaviour
         if (Instance == null) Instance = this;
 
         cameraWorldmapPosition = Camera.main.transform.localPosition;
+        ZoomOut();
     }
 
     private void Start()
@@ -32,47 +33,25 @@ public class CameraManager : MonoBehaviour
         ship = ShipManager.Instance.playerShip.transform;
     }
 
+    public void ZoomIn()
+    {
+        Debug.Log("Début ZoomIn");
+        cameraShipPivot.SetParent(ship);
+        cameraShipPivot.transform.localPosition = Vector3.zero;
+        Camera.main.transform.SetParent(cameraShipPivot);
+        target = cameraZoomTarget.position;
+        Debug.Log("Fin ZoomIn");
+    }
+
+    public void ZoomOut()
+    {
+        Camera.main.transform.SetParent(root);
+        cameraShipPivot.SetParent(root);
+        target = cameraWorldmapPosition;
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T)) Zoom();
-
-        ZoomUpdate();
-    }
-
-    public void Zoom()
-    {
-        isZooming = true;
-    }
-
-    void ZoomUpdate()
-    {
-        if (isZooming && !hasZoomed)
-        {
-            cameraShipPivot.SetParent(ship);
-            cameraShipPivot.transform.localPosition = Vector3.zero;
-            Camera.main.transform.SetParent(cameraShipPivot);
-            ZoomOnTarget(cameraZoomTarget.position);
-        }
-
-        if (isZooming && hasZoomed)
-        {
-            Camera.main.transform.SetParent(GameObject.Find("Root").transform);
-            cameraShipPivot.SetParent(GameObject.Find("Root").transform);
-            ZoomOnTarget(cameraWorldmapPosition);
-        }
-    }
-
-    void ZoomOnTarget(Vector3 target)
-    {
-        if (Camera.main.transform.position.magnitude - target.magnitude < 5)
-        {
-            isZooming = false;
-            hasZoomed = !hasZoomed;
-
-            if (!hasZoomed) ShipManager.Instance.shipCanTravel = true;
-            //else            ShipManager.Instance.playerShip.TravelEndEvent();
-        }
-
         iTween.MoveTo(Camera.main.gameObject, target, zoomDuration);
     }
 }

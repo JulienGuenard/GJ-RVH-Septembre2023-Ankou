@@ -55,8 +55,6 @@ public class MinigameManager : MonoBehaviour
             selectedWorkOfArts.Add((tmp[j], CoursesItemState.NotYetProcessed));
             tmp.RemoveAt(j);
         }
-
-        Debug.Log($"size at reset {selectedWorkOfArts.Count}");
     }
 
     public void MinigameStart()
@@ -119,12 +117,11 @@ public class MinigameManager : MonoBehaviour
             miniGame.ShowShame();
 
         OnMiniGameEnd.Invoke(state);
-        GameManager gm = GameManager.Instance;
-        PortManager pm = PortManager.Instance;
-        MusicManager.Instance.MusicWorldmap();
-        CameraManager.Instance.Zoom();
 
-        pm.portActual.AlreadyVisited = true;
+        MusicManager.Instance.MusicWorldmap();
+        CameraManager.Instance.ZoomOut();
+        PortManager.Instance.portActual.AlreadyVisited = true;
+        ShipManager.Instance.shipCanTravel = true;
     }
 
     public void DeadEnd()
