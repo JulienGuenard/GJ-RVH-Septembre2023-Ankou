@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -64,6 +65,8 @@ public class GameManager : MonoBehaviour
 
         PortManager pm = PortManager.Instance;
 
+        ShipSpawn();
+
         foreach (Port p in pm.gamePorts)
             p.AlreadyVisited = false;
 
@@ -105,5 +108,16 @@ public class GameManager : MonoBehaviour
     public void LaunchScore()
     {
         uiManager.LaunchScore(MinigameManager.Instance.ComputeScore());
+    }
+
+    private void ShipSpawn()
+    {
+        Transform ship = ShipManager.Instance.playerShip.transform;
+        Transform dock = PortManager.Instance.lastPort.dock.transform;
+
+        ship.localPosition = dock.position;
+        ship.rotation = dock.rotation;
+
+        ship.GetComponent<NavMeshAgent>().enabled = true;
     }
 }

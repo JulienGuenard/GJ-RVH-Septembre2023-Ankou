@@ -8,8 +8,6 @@ using UnityEngine.UI;
 
 public class Ship : MonoBehaviour
 {
-    public Camera camera2;
-
     [Header("FX")]
     public GameObject trailParticle;
 
@@ -48,7 +46,7 @@ public class Ship : MonoBehaviour
 
     private IEnumerator WaitForTravelEnd()
     {
-        yield return new WaitWhile(() => agent.pathPending || agent.hasPath || agent.velocity.sqrMagnitude == 0f);
+        yield return new WaitWhile(() => agent.pathPending || agent.hasPath || agent.velocity.sqrMagnitude <= 0.1f);
 
         TravelEnd();
     }
@@ -58,7 +56,6 @@ public class Ship : MonoBehaviour
 
     public void TravelEnd()
     {
-        Camera.SetupCurrent(camera2);
         PortManager pm = PortManager.Instance;
         MoneyManager mm = MoneyManager.Instance;
 
@@ -79,12 +76,19 @@ public class Ship : MonoBehaviour
             return;
         }
 
-        if(pm.portActual.isLastPort)
+        CameraManager.Instance.Zoom();
+    }
+
+    public void TravelEndEvent()
+    {
+        PortManager pm = PortManager.Instance;
+
+        if (pm.portActual.isLastPort)
         {
             if (gm.ReadyToEndGame)
                 GameManager.Instance.LaunchScore();
             else
-                sm.shipCanTravel = true;
+                UIManager.Instance.PNJPanelShow();
 
             return;
         }

@@ -16,6 +16,11 @@ public class PortManager : MonoBehaviour
         if (Instance == null) Instance = this;
     }
 
+    private void Start()
+    {
+        portActual = lastPort;
+    }
+
     public void UpdateArrow(Transform transform, bool isLastPort, bool alreadyVisited)
     {
         if (isLastPort)

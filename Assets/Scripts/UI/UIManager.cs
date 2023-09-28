@@ -11,18 +11,17 @@ public class UIManager : MonoBehaviour
     private bool cheatCodeActive;
 
     [Header("HUD")]
-    [SerializeField]
-    private TextMeshProUGUI moneyText;
+    [SerializeField] private TextMeshProUGUI moneyText;
+    [SerializeField] private GameObject PNJPanel;
 
     [SerializeField]
     private GameObject listeDeCourses;
 
     [Header("Game End")]
-    [SerializeField]
-    private GameObject EndPanel;
+    [SerializeField] private GameObject EndPanel;
+
     [Space]
-    [SerializeField]
-    private GameObject recapCiceron;
+    [SerializeField] private GameObject recapCiceron;
     [SerializeField] private TextMeshProUGUI score;
     [SerializeField] private TextMeshProUGUI text75;
     [SerializeField] private TextMeshProUGUI text50;
@@ -36,8 +35,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject woa3;
     [SerializeField] private GameObject woa4;
     [Space]
-    [SerializeField]
-    private Glossaire glossaire;
+    [SerializeField] private Glossaire glossaire;
+
+    public static UIManager Instance;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+    }
 
     private void Start()
     {
@@ -124,6 +129,17 @@ public class UIManager : MonoBehaviour
             text25.gameObject.SetActive(true);
         else
             text20.gameObject.SetActive(true);
+    }
+
+    public void PNJPanelShow()
+    {
+        PNJPanel.SetActive(true);
+    }
+
+    public void PNJPanelHide()
+    {
+        PNJPanel.SetActive(false);
+        CameraManager.Instance.Zoom();
     }
 
     private void Update()
