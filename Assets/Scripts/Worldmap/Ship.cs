@@ -73,7 +73,7 @@ public class Ship : MonoBehaviour
         StopAllCoroutines();
 
         // Check money dispo
-        if (pm.portActual.AlreadyVisited && mm.CanStartNegociation)
+        if (pm.portActual.AlreadyVisited && !mm.CanStartNegociation)
         {
             sm.shipCanTravel = true;
             return;
