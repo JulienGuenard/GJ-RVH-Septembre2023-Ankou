@@ -120,5 +120,4 @@ public class GameManager : MonoBehaviour
 
         ship.GetComponent<NavMeshAgent>().enabled = true;
     }
-
 }

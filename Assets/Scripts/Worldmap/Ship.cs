@@ -46,7 +46,7 @@ public class Ship : MonoBehaviour
 
     private IEnumerator WaitForTravelEnd()
     {
-        yield return new WaitWhile(() => agent.pathPending || agent.hasPath || agent.velocity.sqrMagnitude == 0f);
+        yield return new WaitWhile(() => agent.pathPending || agent.hasPath || agent.velocity.sqrMagnitude <= 0.1f);
 
         TravelEnd();
     }
@@ -88,7 +88,7 @@ public class Ship : MonoBehaviour
             if (gm.ReadyToEndGame)
                 GameManager.Instance.LaunchScore();
             else
-                sm.shipCanTravel = true;
+                UIManager.Instance.PNJPanelShow();
 
             return;
         }
