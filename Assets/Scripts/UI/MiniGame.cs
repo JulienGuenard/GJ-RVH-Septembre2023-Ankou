@@ -77,6 +77,13 @@ public class MiniGame : MonoBehaviour
         if (!negoBar.PickUpValue(out float val))
             return;
 
+        if (cost < val)
+        {
+            negoBar.Stop();
+            OnNegociationEnd.Invoke(false, reglette.CurrentValue);
+            playing.SetActive(false);
+        }
+
         cost -= val;
         
         if(!reglette.UpdateTextAndPosition(cost))

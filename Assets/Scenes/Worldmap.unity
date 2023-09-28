@@ -367,6 +367,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2202519996737521999, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2458296073790730084, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -478,6 +482,14 @@ PrefabInstance:
     - target: {fileID: 5252206527963328510, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209312106402974092, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271091096283197281, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6515783831160685215, guid: 0b1808aae68e3c5439c554cee892e7da, type: 3}
       propertyPath: m_AnchorMax.y
@@ -899,10 +911,34 @@ MonoBehaviour:
   trailParticle: {fileID: 2464825833256144457, guid: c1a3e66ee20a0b942b2feb9da5992d78, type: 3}
   OnStartTravel:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7796751741782201207}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnEndTravel:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!195 &533462878
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2729,8 +2765,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7813694516051325317, guid: fb1fd5dbd60e4c0409e2e47efa758483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7796751741782201208}
   m_SourcePrefab: {fileID: 100100000, guid: fb1fd5dbd60e4c0409e2e47efa758483, type: 3}
+--- !u!1 &7796751741782201207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7813694516051325317, guid: fb1fd5dbd60e4c0409e2e47efa758483, type: 3}
+  m_PrefabInstance: {fileID: 7796751741782201206}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7796751741782201208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7796751741782201207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbb992f3b294c84688f6edf3cd99bb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomDuration: 5
+  cameraZoomTarget: {fileID: 0}
+  cameraShipPivot: {fileID: 0}
 --- !u!1001 &8518145765377181041
 PrefabInstance:
   m_ObjectHideFlags: 0

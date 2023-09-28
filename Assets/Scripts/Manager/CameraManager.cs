@@ -70,7 +70,7 @@ public class CameraManager : MonoBehaviour
             hasZoomed = !hasZoomed;
 
             if (!hasZoomed) ShipManager.Instance.shipCanTravel = true;
-            else            ShipManager.Instance.playerShip.TravelEndEvent();
+            //else            ShipManager.Instance.playerShip.TravelEndEvent();
         }
 
         iTween.MoveTo(Camera.main.gameObject, target, zoomDuration);
