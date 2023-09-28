@@ -25,7 +25,6 @@ public class CameraManager : MonoBehaviour
         if (Instance == null) Instance = this;
 
         cameraWorldmapPosition = Camera.main.transform.localPosition;
-        ZoomOut();
     }
 
     private void Start()
@@ -35,12 +34,10 @@ public class CameraManager : MonoBehaviour
 
     public void ZoomIn()
     {
-        Debug.Log("Début ZoomIn");
         cameraShipPivot.SetParent(ship);
         cameraShipPivot.transform.localPosition = Vector3.zero;
         Camera.main.transform.SetParent(cameraShipPivot);
         target = cameraZoomTarget.position;
-        Debug.Log("Fin ZoomIn");
     }
 
     public void ZoomOut()

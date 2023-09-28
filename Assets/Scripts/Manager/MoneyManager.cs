@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MoneyManager : MonoBehaviour
 {
@@ -21,19 +22,27 @@ public class MoneyManager : MonoBehaviour
 
     public static MoneyManager Instance;
 
+    public UnityEvent OnBought;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
     }
 
-    public void BuyFor(float cost)
+    public bool BuyFor(float cost)
     {
+        if (cost > money)
+            return false;
+
         GameManager gm = GameManager.Instance;
         money -= cost;
         gm.uiManager.UpdateMoney(money);
 
         if (!CanStartNegociation)
             gm.GameOver();
+
+        OnBought.Invoke();
+        return true;
     }
 
     public void ClientGive(float award)

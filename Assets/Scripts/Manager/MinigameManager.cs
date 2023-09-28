@@ -77,20 +77,25 @@ public class MinigameManager : MonoBehaviour
 
     public void MinigameEnd(bool success, float cost)
     {
-        int i;
-        do
+        int i=0;
+
+        while (i < selectedWorkOfArts.Count && selectedWorkOfArts[i].Item2 != CoursesItemState.Processing)
         {
-            i = Random.Range(0, selectedWorkOfArts.Count);
+            i++;
         }
-        while (selectedWorkOfArts[i].Item2 != CoursesItemState.Processing);
+
+        if (i == selectedWorkOfArts.Count)
+            Debug.LogError("wtf ?", this);
 
         WorkOfArt woa = selectedWorkOfArts[i].Item1;
         CoursesItemState state;
 
+        if (!MoneyManager.Instance.BuyFor(cost))
+            success = false;
+
         if (success)
         {
             Debug.Log("réussite");
-            MoneyManager.Instance.BuyFor(cost);
 
             float diff = woa.MaxPrize - woa.MinPrize;
 

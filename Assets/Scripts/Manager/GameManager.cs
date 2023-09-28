@@ -57,11 +57,12 @@ public class GameManager : MonoBehaviour
     {
         MoneyManager mm = MoneyManager.Instance;
 
-        Debug.Log("ResetGame");
         mm.Money = mm.startMoney;
 
         MinigameManager.Instance.ResetGame();
         uiManager.UpdateMoney(mm.Money);
+
+        CameraManager.Instance.ZoomOut();
 
         PortManager pm = PortManager.Instance;
 

@@ -53,7 +53,7 @@ public class Ship : MonoBehaviour
 
     private IEnumerator WaitForTravelEnd()
     {
-        yield return new WaitWhile(() => agent.pathPending || agent.hasPath || agent.velocity.sqrMagnitude <= 0.1f);
+        yield return new WaitWhile(() => agent.pathPending || agent.hasPath || agent.velocity.sqrMagnitude <= 0.3f);
 
         TravelEnd();
     }
@@ -74,19 +74,22 @@ public class Ship : MonoBehaviour
 
         Debug.Log("Travel End");
         OnTravelEnd.Invoke();
-        Debug.Log("OnDock");
-        OnDock.Invoke();
         StopAllCoroutines();
 
         // Check money dispo
-        if (pm.portActual.AlreadyVisited && !mm.CanStartNegociation)
+        if (pm.portActual.AlreadyVisited || !mm.CanStartNegociation)
         {
+            Debug.Log($"pm.portActual.AlreadyVisited={pm.portActual.AlreadyVisited} && !mm.CanStartNegociation={!mm.CanStartNegociation}");
             sm.shipCanTravel = true;
             return;
         }
 
+        Debug.Log("OnDock");
+        OnDock.Invoke();
+
         if(pm.portActual.isLastPort)
         {
+            Debug.Log($"pm.portActual.isLastPort={pm.portActual.isLastPort}");
             if (gm.ReadyToEndGame)
                 GameManager.Instance.LaunchScore();
             else
@@ -95,6 +98,7 @@ public class Ship : MonoBehaviour
             return;
         }
 
+        MinigameManager.Instance.MinigameStart();
         StopCoroutine(TravelParticleUpdate());
         ShipManager.Instance.shipCanTravel = false;
     }
