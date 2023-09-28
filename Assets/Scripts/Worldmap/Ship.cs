@@ -76,7 +76,14 @@ public class Ship : MonoBehaviour
             return;
         }
 
-        if(pm.portActual.isLastPort)
+        CameraManager.Instance.Zoom();
+    }
+
+    public void TravelEndEvent()
+    {
+        PortManager pm = PortManager.Instance;
+
+        if (pm.portActual.isLastPort)
         {
             if (gm.ReadyToEndGame)
                 GameManager.Instance.LaunchScore();

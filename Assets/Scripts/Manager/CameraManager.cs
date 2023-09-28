@@ -1,24 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class CameraManager : MonoBehaviour
 {
+    [Header("Camera's transition values")]
+    public float zoomDuration;
+
+    [Header("References")]
     public Transform cameraZoomTarget;
     public Transform cameraShipPivot;
-
-    public AnimationCurve zoomCurve;
-    public float zoomSpeed;
-    public float zoomDuration;
+    Transform ship;
 
     bool isZooming;
     bool hasZoomed;
 
-    float evaluateTime = 0;
-
     Vector3 cameraWorldmapPosition;
-
-    ShipManager sm;
 
     public static CameraManager Instance;
 
@@ -29,35 +27,52 @@ public class CameraManager : MonoBehaviour
         cameraWorldmapPosition = Camera.main.transform.localPosition;
     }
 
+    private void Start()
+    {
+        ship = ShipManager.Instance.playerShip.transform;
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T) && !isZooming) isZooming = true;
+        if (Input.GetKeyDown(KeyCode.T)) Zoom();
 
+        ZoomUpdate();
+    }
+
+    public void Zoom()
+    {
+        isZooming = true;
+    }
+
+    void ZoomUpdate()
+    {
         if (isZooming && !hasZoomed)
         {
+            cameraShipPivot.SetParent(ship);
+            cameraShipPivot.transform.localPosition = Vector3.zero;
             Camera.main.transform.SetParent(cameraShipPivot);
-            ZoomOnTarget(cameraZoomTarget.localPosition);
-        }
- 
-        if (isZooming && hasZoomed)     
-        {
-            Camera.main.transform.SetParent(GameObject.Find("Root").transform);
-            ZoomOnTarget(cameraWorldmapPosition);
+            ZoomOnTarget(cameraZoomTarget.position);
         }
 
+        if (isZooming && hasZoomed)
+        {
+            Camera.main.transform.SetParent(GameObject.Find("Root").transform);
+            cameraShipPivot.SetParent(GameObject.Find("Root").transform);
+            ZoomOnTarget(cameraWorldmapPosition);
+        }
     }
 
     void ZoomOnTarget(Vector3 target)
     {
-        evaluateTime += 0.1f / zoomDuration;
-
-        if (evaluateTime >= 2)
+        if (Camera.main.transform.position.magnitude - target.magnitude < 5)
         {
             isZooming = false;
             hasZoomed = !hasZoomed;
-            evaluateTime = 0;
+
+            if (!hasZoomed) ShipManager.Instance.shipCanTravel = true;
+            else            ShipManager.Instance.playerShip.TravelEndEvent();
         }
 
-        Camera.main.transform.localPosition = Vector3.MoveTowards(Camera.main.transform.localPosition, target, zoomCurve.Evaluate(evaluateTime) * zoomSpeed);
+        iTween.MoveTo(Camera.main.gameObject, target, zoomDuration);
     }
 }

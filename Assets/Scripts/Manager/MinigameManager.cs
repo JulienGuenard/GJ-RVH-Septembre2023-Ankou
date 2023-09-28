@@ -118,12 +118,12 @@ public class MinigameManager : MonoBehaviour
         if (state == CoursesItemState.NegociationFailed)
             miniGame.ShowShame();
 
-        ShipManager.Instance.shipCanTravel = true;
         OnMiniGameEnd.Invoke(state);
         GameManager gm = GameManager.Instance;
         PortManager pm = PortManager.Instance;
         MusicManager.Instance.MusicWorldmap();
-        
+        CameraManager.Instance.Zoom();
+
         pm.portActual.AlreadyVisited = true;
     }
 
